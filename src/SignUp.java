@@ -369,6 +369,11 @@ public class SignUp extends javax.swing.JFrame {
                 txt_nameMouseExited(evt);
             }
         });
+        txt_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nameActionPerformed(evt);
+            }
+        });
         txt_name.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_nameFocusGained(evt);
@@ -740,8 +745,11 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (txt_name.getText().trim().equalsIgnoreCase("Enter your full name")) {
             txt_name.setText("");
-
         }
+        if (txt_name.getText().trim().equalsIgnoreCase("Please re-enter your full name")) {
+            txt_name.setText("");
+        }
+
 
     }//GEN-LAST:event_txt_nameMouseClicked
 
