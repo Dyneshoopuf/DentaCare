@@ -91,6 +91,7 @@ public class SignUp2 extends javax.swing.JFrame {
         lbl_img_filepath = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 345));
 
         jPanel1.setBackground(new java.awt.Color(36, 47, 65));
         jPanel1.setMinimumSize(new java.awt.Dimension(390, 460));
@@ -147,9 +148,10 @@ public class SignUp2 extends javax.swing.JFrame {
         lbl_confirm2nd.setText("provided to us are accurate");
         jPanel1.add(lbl_confirm2nd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 30));
 
-        jButton2.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel3.setForeground(new java.awt.Color(0, 0, 0));
+
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(204, 204, 204));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("I want to make changes");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
