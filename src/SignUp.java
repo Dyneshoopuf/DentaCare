@@ -80,12 +80,10 @@ public class SignUp extends javax.swing.JFrame {
             st = con.createStatement();
         } catch (Exception ex) {
             System.out.println("Error: " + ex);
-
         }
-
     }
 
-    public void setIcon(String toggleColor_icon) {
+    public void setToggleColorIcon(String toggleColor_icon) {
         URL url = getClass().getResource(toggleColor_icon);
         try {
             BufferedImage default_theme_icon = ImageIO.read(url);
@@ -1111,9 +1109,11 @@ public class SignUp extends javax.swing.JFrame {
         int pass_length = pass.length();
 
         if (pass_length == 0) {
+
             lbl_null_password.setVisible(true);
             lbl_accepted_password.setVisible(false);
             lbl_unaccepted_password.setVisible(false);
+
         }
         if (pass_length > 7 && pass_length < 21) {
 
@@ -1158,9 +1158,10 @@ public class SignUp extends javax.swing.JFrame {
     private void lPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lPaneMouseClicked
         // TODO add your handling code here:
         int mouseClick = evt.getClickCount();
-        if (mouseClick == 1 && txt_name.getText().trim().equalsIgnoreCase("Enter your full name")) {
-            txt_name.setText("");
-        } else if (mouseClick == 1 && !txt_name.getText().trim().equalsIgnoreCase("Enter your full name")) {
+        /* if (mouseClick == 1 && txt_name.getText().trim().equalsIgnoreCase("Enter your full name")) {
+         txt_name.setText("");
+         } else */
+        if (mouseClick == 1 && !txt_name.getText().trim().equalsIgnoreCase("Enter your full name")) {
             String perm = txt_name.getText();
             txt_name.setText(perm);
 
@@ -1267,7 +1268,7 @@ public class SignUp extends javax.swing.JFrame {
             signup_button.setForeground(Color.BLACK);
             toggleColor.setForeground(Color.WHITE);
 
-            setIcon("/resources/default tooth.png");
+            setToggleColorIcon("/resources/default tooth.png");
             // toggleColor.setText("Default Theme");
 
         } else {
@@ -1275,7 +1276,7 @@ public class SignUp extends javax.swing.JFrame {
             setDefaultBG();
             // toggleColor.setText("Dark Theme");
             toggleColor.setForeground(Color.BLACK);
-            setIcon("/resources/dark tooth.png");
+            setToggleColorIcon("/resources/dark tooth.png");
 
         }
     }//GEN-LAST:event_toggleColorActionPerformed
