@@ -16,6 +16,7 @@ public class DentalSoftwareApp {
      */
     public static void main(String[] args) {
         System.out.println("bla bla bla");
+        System.out.println("blaaaaa");
 
         int multiplier = 2, multiplier2 = 10;
 
