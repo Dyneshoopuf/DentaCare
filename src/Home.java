@@ -5,6 +5,8 @@
  */
 package dentalsoftwareapp;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author Roy
@@ -16,6 +18,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/teethManager.png")));
         setLocationRelativeTo(null);
         pack();
     }

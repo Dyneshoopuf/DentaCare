@@ -6,18 +6,13 @@
 package dentalsoftwareapp;
 
 import java.awt.Color;
-
 import java.awt.Toolkit;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -76,7 +71,6 @@ public class SignUp2 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txt_name2 = new javax.swing.JLabel();
-        lbl_attachphoto2 = new javax.swing.JLabel();
         lbl_greet2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lbl_username2 = new javax.swing.JLabel();
@@ -93,10 +87,8 @@ public class SignUp2 extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         signup_button = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         lbl_confirm2 = new javax.swing.JLabel();
         lbl_img_filepath = new javax.swing.JLabel();
-        lbl_attachphoto3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,11 +100,6 @@ public class SignUp2 extends javax.swing.JFrame {
         txt_name2.setFont(new java.awt.Font("Century Gothic", 3, 22)); // NOI18N
         txt_name2.setForeground(new java.awt.Color(0, 204, 255));
         jPanel1.add(txt_name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 280, 30));
-
-        lbl_attachphoto2.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
-        lbl_attachphoto2.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_attachphoto2.setText("Your image will appear upon software activation");
-        jPanel1.add(lbl_attachphoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, -1, 30));
 
         lbl_greet2.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
         lbl_greet2.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,8 +147,6 @@ public class SignUp2 extends javax.swing.JFrame {
         lbl_confirm2nd.setText("provided to us are accurate");
         jPanel1.add(lbl_confirm2nd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 30));
 
-        jPanel3.setBackground(new java.awt.Color(0, 204, 255));
-
         jButton2.setBackground(new java.awt.Color(51, 153, 255));
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(204, 204, 204));
@@ -177,7 +162,7 @@ public class SignUp2 extends javax.swing.JFrame {
         });
         jPanel3.add(jButton2);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 180, 30));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 180, 30));
 
         jPanel4.setBackground(new java.awt.Color(51, 153, 255));
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -197,17 +182,7 @@ public class SignUp2 extends javax.swing.JFrame {
         });
         jPanel4.add(signup_button);
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 90, 30));
-
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jButton3.setText("Attach Image");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 90, 30));
 
         lbl_confirm2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lbl_confirm2.setForeground(new java.awt.Color(255, 255, 255));
@@ -217,11 +192,6 @@ public class SignUp2 extends javax.swing.JFrame {
         lbl_img_filepath.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lbl_img_filepath.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(lbl_img_filepath, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 360, 30));
-
-        lbl_attachphoto3.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
-        lbl_attachphoto3.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_attachphoto3.setText("You may attach an image of yourself for better recognition and function");
-        jPanel1.add(lbl_attachphoto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 390, 30));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -255,6 +225,8 @@ public class SignUp2 extends javax.swing.JFrame {
     private void signup_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signup_buttonActionPerformed
         // TODO add your handling code here:
 
+        // this needs more analysis and study! -ROY
+        // prone to bugs and errors
         JTextField field = new JTextField();
         field.setColumns(50);
         field.setForeground(Color.MAGENTA);
@@ -277,6 +249,7 @@ public class SignUp2 extends javax.swing.JFrame {
 
                     String getLicense = "SELECT `License Key` FROM `keytbl` WHERE `License Key` = '" + code + "' ";
                     rs = st.executeQuery(getLicense);
+
                     int count = 0;
                     while (rs.next()) {
                         count += 1;
@@ -288,15 +261,30 @@ public class SignUp2 extends javax.swing.JFrame {
 
                             JOptionPane.showMessageDialog(this, "Software activation successful!");
                             System.out.println("Success verification 2");
-                            String sql = "INSERT INTO `registertbl`(`Full Name`, `Username`, `Password`, `Email`) VALUES (?,?,?,?)";
-                            pst = con.prepareStatement(sql);
+                            String addDentist = "INSERT INTO `registertbl`(`Full Name`, `Username`, `Password`, `Email`) VALUES (?,?,?,?)";
+
+                            pst = con.prepareStatement(addDentist);
 
                             pst.setString(1, txt_name2.getText());
                             pst.setString(2, txt_username2.getText());
                             pst.setString(3, txt_password2.getText());
                             pst.setString(4, txt_email2.getText());
                             pst.execute();
+
                             System.out.println("data inserted!");
+                            String disposeKey = "DELETE FROM `keytbl` WHERE `License Key` = ?";
+                            try {
+                                pst = con.prepareStatement(disposeKey);
+                                pst.setString(1, field.getText());
+                                pst.execute();
+                                System.out.println("key disposed!");
+                                JOptionPane.showMessageDialog(null, "License was successfully registered to your account. Please keep a copy of it for future reference.");
+
+                            } catch (Exception e) {
+
+                                JOptionPane.showMessageDialog(null, e);
+                            }
+
                             this.dispose();
                             Login login = new Login();
                             login.setVisible(true);
@@ -312,7 +300,7 @@ public class SignUp2 extends javax.swing.JFrame {
                 } catch (Exception ex) {
 
                 }
-                //revise!!:
+                // revisee!!
 
             }
         } else {
@@ -321,37 +309,6 @@ public class SignUp2 extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_signup_buttonActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-        File f = chooser.getSelectedFile();
-
-        filename = f.getAbsolutePath();
-
-        f.getName();
-        lbl_img_filepath.setText(f.toString());
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon(filename).getImage()); //removed -ROY
-        //imageIcon.getScaledInstance(lbl_img.getWidth(), lbl_img.getHeight(), Image.SCALE_DEFAULT);
-        //lbl_img.setIcon(imageIcon);
-        try {
-
-            File image = new File(filename);
-            FileInputStream fis = new FileInputStream(image);
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            byte[] buf = new byte[1024];
-
-            for (int readNum; (readNum = fis.read(buf)) != -1;) {
-
-                bos.write(buf, 0, readNum);
-            }
-            person_image = bos.toByteArray();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,7 +353,6 @@ public class SignUp2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -404,13 +360,11 @@ public class SignUp2 extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    public javax.swing.JLabel lbl_attachphoto2;
-    public javax.swing.JLabel lbl_attachphoto3;
     public javax.swing.JLabel lbl_confirm2;
     public javax.swing.JLabel lbl_confirm2nd;
     public javax.swing.JLabel lbl_email2;
     private javax.swing.JLabel lbl_greet2;
-    public javax.swing.JLabel lbl_img_filepath;
+    private javax.swing.JLabel lbl_img_filepath;
     public javax.swing.JLabel lbl_password2;
     public javax.swing.JLabel lbl_username2;
     private javax.swing.JButton signup_button;

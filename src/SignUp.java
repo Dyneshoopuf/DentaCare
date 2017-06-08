@@ -182,6 +182,8 @@ public class SignUp extends javax.swing.JFrame {
         contact_fb = new javax.swing.JButton();
         contact_google = new javax.swing.JButton();
         contact_twitter = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        sign_in_button = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_date = new javax.swing.JMenu();
         menu_time = new javax.swing.JMenu();
@@ -308,12 +310,14 @@ public class SignUp extends javax.swing.JFrame {
                 seePasswordActionPerformed(evt);
             }
         });
-        rPane.add(seePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 440, -1, -1));
+        rPane.add(seePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 440, 40, -1));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel4.setText("Sign Up or Sign In");
-        rPane.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 210, 40));
+        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Constantia", 2, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Sign in");
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rPane.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 90, 80, 70));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
@@ -430,6 +434,9 @@ public class SignUp extends javax.swing.JFrame {
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txt_passwordMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_passwordMousePressed(evt);
             }
         });
         txt_password.addActionListener(new java.awt.event.ActionListener() {
@@ -671,6 +678,22 @@ public class SignUp extends javax.swing.JFrame {
         );
 
         rPane.add(contactPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 710, 240, 80));
+
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel16.setText("Sign Up or ");
+        rPane.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 130, 40));
+
+        sign_in_button.setBackground(new java.awt.Color(0, 204, 255));
+        sign_in_button.setBorder(null);
+        sign_in_button.setContentAreaFilled(false);
+        sign_in_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sign_in_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sign_in_buttonActionPerformed(evt);
+            }
+        });
+        rPane.add(sign_in_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 110, 70, 30));
 
         getContentPane().add(rPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1293, 789));
 
@@ -1302,6 +1325,18 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nameMousePressed
 
+    private void txt_passwordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_passwordMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordMousePressed
+
+    private void sign_in_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sign_in_buttonActionPerformed
+        // TODO add your handling code here:
+        Login login = new Login();
+        login.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_sign_in_buttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1349,6 +1384,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1381,6 +1417,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JMenu menu_time;
     private javax.swing.JPanel rPane;
     private javax.swing.JCheckBox seePassword;
+    private javax.swing.JButton sign_in_button;
     private javax.swing.JButton signup_button;
     private javax.swing.JToggleButton toggleColor;
     public javax.swing.JTextField txt_email;

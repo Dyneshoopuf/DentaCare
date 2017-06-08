@@ -13,12 +13,44 @@ public class DentalSoftwareApp {
 
     /**
      * @param args the command line arguments
+     *
      */
-    public static void main(String[] args) {
-        System.out.println("bla bla bla");
-        System.out.println("blaaaaa");
+    public static void main(String[] args) /* throws InterruptedException */ {
 
-        int multiplier = 2, multiplier2 = 10;
+        /* final Processor processor = new Processor();
+
+         Thread t1 = new Thread(new Runnable() {
+
+         @Override
+         public void run() {
+         try {
+         processor.loginProduce();
+         } catch (InterruptedException e) {
+         e.printStackTrace();
+         }
+         }
+         });
+
+         Thread t2 = new Thread(new Runnable() {
+
+         @Override
+         public void run() {
+         try {
+         processor.loginConsume();
+         } catch (InterruptedException e) {
+         e.printStackTrace();
+         }
+         }
+         });
+
+         t1.start();
+         t2.start();
+
+         t1.join();
+         t2.join();
+         */
+        int multiplier = 2;
+        int multiplier2 = 10;
 
         ScreenPop screenPop = new ScreenPop();
         screenPop.setVisible(true);
@@ -73,5 +105,4 @@ public class DentalSoftwareApp {
         }
 
     }
-
 }
