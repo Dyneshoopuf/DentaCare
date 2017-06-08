@@ -15,7 +15,7 @@ public class DentalSoftwareApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("bla bla bla");
 
         int multiplier = 2, multiplier2 = 10;
 
