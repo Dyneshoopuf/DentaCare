@@ -327,14 +327,8 @@ public class SignUp extends javax.swing.JFrame {
         jLabel7.setText("PASSWORD");
         rPane.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 390, 80, 40));
         rPane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 630, 140, 10));
-
-        jSeparator3.setForeground(new java.awt.Color(102, 102, 102));
         rPane.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 470, 10));
-
-        jSeparator4.setForeground(new java.awt.Color(102, 102, 102));
         rPane.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 470, 10));
-
-        jSeparator5.setForeground(new java.awt.Color(102, 102, 102));
         rPane.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 470, 470, 10));
 
         txt_email.setBackground(new java.awt.Color(0, 204, 255));
@@ -342,17 +336,17 @@ public class SignUp extends javax.swing.JFrame {
         txt_email.setForeground(new java.awt.Color(255, 255, 255));
         txt_email.setText("Your email here");
         txt_email.setBorder(null);
+        txt_email.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_emailMouseClicked(evt);
+            }
+        });
         txt_email.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_emailFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_emailFocusLost(evt);
-            }
-        });
-        txt_email.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_emailMouseClicked(evt);
             }
         });
         txt_email.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -367,14 +361,6 @@ public class SignUp extends javax.swing.JFrame {
         txt_name.setForeground(new java.awt.Color(255, 255, 255));
         txt_name.setText("Enter your full name");
         txt_name.setBorder(null);
-        txt_name.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_nameFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_nameFocusLost(evt);
-            }
-        });
         txt_name.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_nameMouseClicked(evt);
@@ -382,13 +368,13 @@ public class SignUp extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 txt_nameMouseExited(evt);
             }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txt_nameMousePressed(evt);
-            }
         });
-        txt_name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nameActionPerformed(evt);
+        txt_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_nameFocusLost(evt);
             }
         });
         txt_name.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -408,19 +394,19 @@ public class SignUp extends javax.swing.JFrame {
         txt_username.setFont(new java.awt.Font("Century", 0, 18)); // NOI18N
         txt_username.setForeground(new java.awt.Color(255, 255, 255));
         txt_username.setText("Enter your username ");
-        txt_username.setToolTipText("");
+        txt_username.setToolTipText("a valid username should only contain small characters");
         txt_username.setBorder(null);
+        txt_username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_usernameMouseClicked(evt);
+            }
+        });
         txt_username.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_usernameFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_usernameFocusLost(evt);
-            }
-        });
-        txt_username.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_usernameMouseClicked(evt);
             }
         });
         txt_username.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -435,14 +421,6 @@ public class SignUp extends javax.swing.JFrame {
         txt_password.setForeground(new java.awt.Color(255, 255, 255));
         txt_password.setText("Password here");
         txt_password.setBorder(null);
-        txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_passwordFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_passwordFocusLost(evt);
-            }
-        });
         txt_password.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_passwordMouseClicked(evt);
@@ -454,6 +432,14 @@ public class SignUp extends javax.swing.JFrame {
         txt_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_passwordActionPerformed(evt);
+            }
+        });
+        txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_passwordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_passwordFocusLost(evt);
             }
         });
         txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -505,8 +491,6 @@ public class SignUp extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Contact Us");
         rPane.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 680, 80, 30));
-
-        jSeparator7.setForeground(new java.awt.Color(102, 102, 102));
         rPane.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 560, 470, 10));
 
         jButton3.setBackground(new java.awt.Color(36, 47, 65));
@@ -756,9 +740,7 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (txt_name.getText().trim().equalsIgnoreCase("Enter your full name")) {
             txt_name.setText("");
-        }
-        else {
-            txt_name.setText("");
+
         }
 
     }//GEN-LAST:event_txt_nameMouseClicked
@@ -795,8 +777,7 @@ public class SignUp extends javax.swing.JFrame {
         }
         if (txt_username.getText() != null) {
             lbl_null_username.setVisible(false);
-        }
-        else {
+        } else {
             txt_username.setText("");
         }
 
@@ -829,7 +810,7 @@ public class SignUp extends javax.swing.JFrame {
         // THIS NEEDS A LOT OF REVISE AND OPTIMISATION!! -ROY
         String pass = String.valueOf(txt_password.getPassword()).trim();
         int pass_length = pass.length();
-        String email_valid  = txt_email.getText().trim();
+        String email_valid = txt_email.getText().trim();
         String sql = "INSERT INTO `registertbl`(`Full Name`, `Username`, `Password`, `Email`) VALUES (?,?,?,?)";
         //String check = "SELECT `Username`, `Email` FROM `registertbl` WHERE `Username` = '" + txt_username.getText() + "'";
         /*String check = "SELECT `Username`, `Email` FROM `registertbl` WHERE `Username`= ? and `Email` = ?"; */
@@ -845,81 +826,81 @@ public class SignUp extends javax.swing.JFrame {
 
                     //check for password validity
                     if (pass_length > 7 && pass_length < 21) {
-                        if (email_valid.contains("@") && email_valid.contains(".com")){
-                                
-                        String user = txt_username.getText().trim();
-                        String email = txt_email.getText().trim();
+                        if (email_valid.contains("@") && email_valid.contains(".com")) {
 
-                        String verify = "SELECT `Username`, `Email` FROM `registertbl` WHERE `Username` = '" + user + "' or `Email` = '" + email + "' ";
-                        rs = st.executeQuery(verify);
-                        int count = 0;
-                        while (rs.next()) {
-                            count += 1;
-                        }
-                        if (count == 1) {
-                            Object[] options = {"Take me to the Log-in Page",
-                                "Cancel"};
-                            int userOption = JOptionPane.showOptionDialog(null, "It appears that you are trying to sign-up with an existing account.",
-                                    "Unable to Sign You Up",
-                                    JOptionPane.YES_NO_OPTION,
-                                    JOptionPane.QUESTION_MESSAGE,
-                                    new ImageIcon(getClass().getResource("/resources/nerd.png")),
-                                    options,
-                                    options[0]);
-                            if (userOption == 0) {
-                                Login login = new Login();
-                                login.setVisible(true);
-                                this.dispose();
+                            String user = txt_username.getText().trim();
+                            String email = txt_email.getText().trim();
+
+                            String verify = "SELECT `Username`, `Email` FROM `registertbl` WHERE `Username` = '" + user + "' or `Email` = '" + email + "' ";
+                            rs = st.executeQuery(verify);
+                            int count = 0;
+                            while (rs.next()) {
+                                count += 1;
+                            }
+                            if (count == 1) {
+                                Object[] options = {"Take me to the Log-in Page",
+                                    "Cancel"};
+                                int userOption = JOptionPane.showOptionDialog(null, "It appears that you are trying to sign-up with an existing account.",
+                                        "Unable to Sign You Up",
+                                        JOptionPane.YES_NO_OPTION,
+                                        JOptionPane.QUESTION_MESSAGE,
+                                        new ImageIcon(getClass().getResource("/resources/nerd.png")),
+                                        options,
+                                        options[0]);
+                                if (userOption == 0) {
+                                    Login login = new Login();
+                                    login.setVisible(true);
+                                    this.dispose();
+                                } else {
+
+                                }
+
+                            } else if (count > 1) {
+
+                                Object[] options = {"Take me to the Log-in Page",
+                                    "Cancel"};
+                                int userOption = JOptionPane.showOptionDialog(null, "It appears that you are trying to sign-up with an existing account.",
+                                        "Unable to Sign You Up",
+                                        JOptionPane.YES_NO_OPTION,
+                                        JOptionPane.QUESTION_MESSAGE,
+                                        new ImageIcon(getClass().getResource("/resources/nerd.png")),
+                                        options,
+                                        options[0]);
+                                if (userOption == 0) {
+                                    Login login = new Login();
+                                    login.setVisible(true);
+                                    this.dispose();
+                                }
+
                             } else {
 
-                            }
+                                try {
+                                    Thread.sleep(500);
+                                    SignUp2 signUp2 = new SignUp2();
+                                    signUp2.setVisible(true);
+                                    this.dispose();
 
-                        } else if (count > 1) {
+                                    System.out.println("Success verification 1");
+                                    txtName = txt_name.getText().trim().toUpperCase().concat(",");
+                                    txtUsername = txt_username.getText().trim().toLowerCase();
+                                    chrPassword = txt_password.getPassword();
+                                    txtPassword = String.valueOf(chrPassword).trim();
+                                    txtEmail = txt_email.getText().trim();
 
-                            Object[] options = {"Take me to the Log-in Page",
-                                "Cancel"};
-                            int userOption = JOptionPane.showOptionDialog(null, "It appears that you are trying to sign-up with an existing account.",
-                                    "Unable to Sign You Up",
-                                    JOptionPane.YES_NO_OPTION,
-                                    JOptionPane.QUESTION_MESSAGE,
-                                    new ImageIcon(getClass().getResource("/resources/nerd.png")),
-                                    options,
-                                    options[0]);
-                            if (userOption == 0) {
-                                Login login = new Login();
-                                login.setVisible(true);
-                                this.dispose();
-                            }
+                                    signUp2.txt_name2.setText(txtName);
+                                    signUp2.txt_username2.setText(txtUsername);
+                                    signUp2.txt_password2.setText(txtPassword);
+                                    signUp2.txt_email2.setText(txtEmail);
 
-                        } else {
+                                } catch (Exception ex) {
 
-                            try {
-                                Thread.sleep(500);
-                                SignUp2 signUp2 = new SignUp2();
-                                signUp2.setVisible(true);
-                                this.dispose();
-
-                                System.out.println("Success verification 1");
-                                txtName = txt_name.getText().trim().toUpperCase().concat(",");
-                                txtUsername = txt_username.getText().trim().toLowerCase();
-                                chrPassword = txt_password.getPassword();
-                                txtPassword = String.valueOf(chrPassword).trim();
-                                txtEmail = txt_email.getText().trim();
-
-                                signUp2.txt_name2.setText(txtName);
-                                signUp2.txt_username2.setText(txtUsername);
-                                signUp2.txt_password2.setText(txtPassword);
-                                signUp2.txt_email2.setText(txtEmail);
-
-                            } catch (Exception ex) {
-
-                            }
-
-                        }
-                        } else{
-                                 JOptionPane.showMessageDialog(null, "Your email is not acceptable. Please try a different email", "Sign Up Failed!", JOptionPane.ERROR_MESSAGE);
-                        System.out.println("checking email validity...");
                                 }
+
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Your email is not acceptable. Please try a different email", "Sign Up Failed!", JOptionPane.ERROR_MESSAGE);
+                            System.out.println("checking email validity...");
+                        }
                     } else {
                         JOptionPane.showMessageDialog(null, "Your password is not acceptable. Please try a different password", "Sign Up Failed!", JOptionPane.ERROR_MESSAGE);
                         System.out.println("checking password validity...");
@@ -1109,6 +1090,9 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (txt_username.getText().equals(empty)) {
             lbl_null_username.setVisible(true);
+        } else {
+            String txt_username_lower = txt_username.getText().trim().toLowerCase();
+            txt_username.setText(txt_username_lower);
         }
     }//GEN-LAST:event_txt_usernameFocusLost
 

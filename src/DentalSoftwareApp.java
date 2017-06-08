@@ -36,25 +36,34 @@ public class DentalSoftwareApp {
                     signUp.setLocationRelativeTo(null);
                 }
                 if (i == 5) {
+                    //checks if license is already claimed
+                    screenPop.loadingDescription.setText("Validating license...");
+                    Data data = new Data();
+                    data.checkLicense();
+                    System.out.print("\n");
+                }
+                if (i == 33) {
                     screenPop.loadingDescription.setText("Loading files...");
-                    signUp.getDate();
+                    //here goes the saved directories if software was already claimed beforehand
                 }
                 if (i == 47) {
                     Thread.sleep(1000);
                     screenPop.loadingDescription.setText("Fetching data...");
                     Data data = new Data();
                     data.getData();
-
                 }
                 if (i == 79) {
                     Thread.sleep(1000);
-                    screenPop.loadingDescription.setText("Loading cache...");
+                    screenPop.loadingDescription.setText("Warming up...");
+                    signUp.getDate();
+                    signUp.validate();
+
                 }
                 if (i == 99) {
                     Thread.sleep(400);
+                    signUp.revalidate();
                     screenPop.loadingDescription.setText("Done..!");
                     Thread.sleep(500);
-
                 }
 
             }

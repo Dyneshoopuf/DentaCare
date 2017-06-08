@@ -235,7 +235,6 @@ public class Login extends javax.swing.JFrame {
             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jLabel4.setBackground(new java.awt.Color(51, 51, 55));
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel4.setText("Login");
 
@@ -309,10 +308,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        lbl_capslock.setBackground(new java.awt.Color(51, 51, 55));
         lbl_capslock.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
-        lbl_capslock2.setBackground(new java.awt.Color(51, 51, 55));
         lbl_capslock2.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/login.gif"))); // NOI18N
@@ -563,36 +560,29 @@ public class Login extends javax.swing.JFrame {
                 Home home = new Home();
                 home.setVisible(true);
                 home.setLocationRelativeTo(this);
-               
-                
-                
-            //continue revise here
-              
 
-            /*  
-                ImageIcon imageIcon = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(home.lbl_img.getWidth(), home.lbl_img.getHeight(), Image.SCALE_DEFAULT));
-                home.lbl_img.setIcon(imageIcon);
-                try {
+                //continue revise here
+                /*  
+                 ImageIcon imageIcon = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(home.lbl_img.getWidth(), home.lbl_img.getHeight(), Image.SCALE_DEFAULT));
+                 home.lbl_img.setIcon(imageIcon);
+                 try {
 
-                    File image = new File(filename);
-                    FileInputStream fis = new FileInputStream(image);
-                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    byte[] buf = new byte[1024];
+                 File image = new File(filename);
+                 FileInputStream fis = new FileInputStream(image);
+                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                 byte[] buf = new byte[1024];
 
-                    for (int readNum; (readNum = fis.read(buf)) != -1;) {
+                 for (int readNum; (readNum = fis.read(buf)) != -1;) {
 
-                        bos.write(buf, 0, readNum);
-                    }
-                    person_image = bos.toByteArray();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
+                 bos.write(buf, 0, readNum);
+                 }
+                 person_image = bos.toByteArray();
+                 } catch (Exception e) {
+                 JOptionPane.showMessageDialog(null, e);
 
-                }
+                 }
                 
-        */        
-                
-                
-                
+                 */
             } else if (count > 1) {
                 System.out.println("there is a duplicate account. failed login.");
             } else {
