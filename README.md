@@ -10,7 +10,8 @@ Key features of DentaCare: <br>
 <li> DentaCare even goes as far as being able to store an image or video of the patients' teeth and illustrate a before-and-after comparison, if necessary. </li> </ul> </ul>
 <ul> <li> Set-up or View appointment with a real-time calendar and or Notify patients' appointment via email. </li> </ul>
 <ul> <li> Cross-platform: Compatible to most Operating Systems </li> </ul>
-<ul> <li> The most friendly and customizeable UI in this era you'll find! </li> </ul> <br> 
+<ul> <li> The most friendly and customizeable UI in this era you'll find! </li> <br>
+<li> Choose your own font, background colors and a lot more customizeable options! </li> </ul>
 <a href= "https://www.facebook.com/groups/473984372933874/"> <u> See the software makers in Facebook </u> </a>
 
 dyneshoopuf - Justine Roy Olaguer <br>
