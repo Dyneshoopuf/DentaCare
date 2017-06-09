@@ -1,4 +1,4 @@
-<center> <h1> DentaCare <h1>
+ <center> <h1> DentaCare <h1>
 <img src="sc.PNG" alt="HTML5 Icon" style="width:1290px;height:845px;"> </center> <br> 
 <h1> Introduction
 </h1> 
@@ -13,6 +13,6 @@ Key features of DentaCare:
 <li> The most friendly and customizeable UI in this era you'll find! </li> <br>
 <a href= "https://www.facebook.com/groups/473984372933874/"> <u> See the software makers in Facebook </u> </a>
 
-dyneshoopuf - Justine Roy Olaguer
-rj-anne - Julliah Anne Reyes
+dyneshoopuf - Justine Roy Olaguer <br>
+rj-anne - Julliah Anne Reyes <br>
 
