@@ -12,7 +12,7 @@ Key features of DentaCare: <br>
 <ul> <li> Cross-platform: Compatible on almost all Operating Systems </li> 
 <ul> <li> Dentists are certain that they will get the compatibility, performance and realibility to the max since DentaCare was made with Java compiler </li> </ul>
 <ul> <li> The most friendly and customizeable UI you'll find. </li> 
-<ul> <li> Choose your own font, background colors and a lot more customizeable options! </li> </ul> </ul> <p> <br>
+<ul> <li> Choose your own font, background colors and a lot more customizeable options! </li> </ul> </ul> </ul> <p> <br>
 
 <a href= "https://www.facebook.com/groups/473984372933874/"> <u> See the software makers in Facebook </u> </a> <br>
 dyneshoopuf - Justine Roy Olaguer <br>
