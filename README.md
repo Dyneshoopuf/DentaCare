@@ -1,5 +1,4 @@
-<h1> DentaCare <h1>
-<center>
+<center> <h1> DentaCare <h1>\
 <img src="sc.PNG" alt="HTML5 Icon" style="width:1290px;height:845px;"> </center> <br> 
 <h1> Introduction
 </h1> 
