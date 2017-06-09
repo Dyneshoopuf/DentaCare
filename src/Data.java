@@ -45,9 +45,9 @@ public class Data {
                 String username = rs.getString("Username");
                 System.out.println("ID: " + id + " Name: " + name + "Username:" + username);
             }
+            System.out.println("No registered user/s found");
         } catch (Exception ex) {
             System.out.println(ex);
-            System.out.println("No data found");
         }
     }
 
@@ -64,8 +64,7 @@ public class Data {
                 System.out.println("There is no license key available to use");
                 System.out.println("Force closing the app...");
                 System.exit(1);
-            }
-            else if (x == 1) {
+            } else if (x == 1) {
                 System.out.println("1 License found and is ready to use");
             } else if (x > 1) {
                 System.out.println("Found more than 1 license! If you're one of the devs of this software, dispose multiple license immediately!");

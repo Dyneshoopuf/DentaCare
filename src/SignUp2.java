@@ -366,7 +366,7 @@ public class SignUp2 extends javax.swing.JFrame {
     public javax.swing.JLabel lbl_confirm2nd;
     public javax.swing.JLabel lbl_email2;
     private javax.swing.JLabel lbl_greet2;
-    private javax.swing.JLabel lbl_img_filepath;
+    public javax.swing.JLabel lbl_img_filepath;
     public javax.swing.JLabel lbl_password2;
     public javax.swing.JLabel lbl_username2;
     private javax.swing.JButton signup_button;

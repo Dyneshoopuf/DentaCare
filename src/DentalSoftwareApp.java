@@ -74,10 +74,13 @@ public class DentalSoftwareApp {
                     Data data = new Data();
                     data.checkLicense();
                     System.out.print("\n");
+                    signUp.invalidate();
                 }
                 if (i == 33) {
                     screenPop.loadingDescription.setText("Loading files...");
                     //here goes the saved directories if software was already claimed beforehand
+                    signUp.validate();
+                    System.out.println("No existing files found yet");
                 }
                 if (i == 47) {
                     Thread.sleep(1000);
@@ -89,7 +92,7 @@ public class DentalSoftwareApp {
                     Thread.sleep(1000);
                     screenPop.loadingDescription.setText("Warming up...");
                     signUp.getDate();
-                    signUp.validate();
+                    signUp.revalidate();
 
                 }
                 if (i == 99) {
@@ -97,6 +100,7 @@ public class DentalSoftwareApp {
                     signUp.revalidate();
                     screenPop.loadingDescription.setText("Done..!");
                     Thread.sleep(500);
+                    signUp.repaint();
                 }
 
             }

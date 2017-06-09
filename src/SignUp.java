@@ -61,7 +61,9 @@ public class SignUp extends javax.swing.JFrame {
      * Creates new form SignUp2
      */
     public SignUp() {
-
+        
+        revalidate();
+        repaint();
         initComponents();
         modifyThis();
         //overridess
@@ -219,6 +221,7 @@ public class SignUp extends javax.swing.JFrame {
         jPopupMenu1.add(menu_exit);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1290, 845));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 formMouseReleased(evt);
