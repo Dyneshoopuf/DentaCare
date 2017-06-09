@@ -17,4 +17,4 @@ Key features of DentaCare: <br>
 dyneshoopuf - Justine Roy Olaguer <br>
 rj-anne - Julliah Anne Reyes <br>
 
-&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp All rights reserved
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; All rights reserved
