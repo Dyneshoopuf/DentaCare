@@ -17,40 +17,8 @@ public class DentalSoftwareApp {
      */
     public static void main(String[] args) /* throws InterruptedException */ {
 
-        /* final Processor processor = new Processor();
-
-         Thread t1 = new Thread(new Runnable() {
-
-         @Override
-         public void run() {
-         try {
-         processor.loginProduce();
-         } catch (InterruptedException e) {
-         e.printStackTrace();
-         }
-         }
-         });
-
-         Thread t2 = new Thread(new Runnable() {
-
-         @Override
-         public void run() {
-         try {
-         processor.loginConsume();
-         } catch (InterruptedException e) {
-         e.printStackTrace();
-         }
-         }
-         });
-
-         t1.start();
-         t2.start();
-
-         t1.join();
-         t2.join();
-         */
         int multiplier = 2;
-        int multiplier2 = 10;
+        int multiplier2 = -3;
 
         ScreenPop screenPop = new ScreenPop();
         screenPop.setVisible(true);
@@ -60,7 +28,7 @@ public class DentalSoftwareApp {
         try {
 
             for (int i = 0; i <= 100; i++) {
-                Thread.sleep(1 + (i + multiplier + multiplier2));
+                Thread.sleep(1 + (i + (multiplier - multiplier2)));
                 screenPop.loadingPercent.setText(Integer.toString(i) + "%");
                 screenPop.loadingBar.setValue(i);
                 if (i == 100) {
@@ -85,19 +53,21 @@ public class DentalSoftwareApp {
                 if (i == 47) {
                     Thread.sleep(1000);
                     screenPop.loadingDescription.setText("Fetching data...");
+                    multiplier -= 1;
                     Data data = new Data();
                     data.getData();
                 }
                 if (i == 79) {
                     Thread.sleep(1000);
                     screenPop.loadingDescription.setText("Warming up...");
-           
+                    multiplier += 110;
                     signUp.revalidate();
-
+                    signUp.doLayout();
+                    System.out.println("App passed all threads and is almost ready for launch...");
+                    Thread.sleep(500);
                 }
                 if (i == 99) {
                     Thread.sleep(400);
-                    signUp.revalidate();
                     screenPop.loadingDescription.setText("Done..!");
                     Thread.sleep(500);
                     signUp.repaint();

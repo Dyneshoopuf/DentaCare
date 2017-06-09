@@ -21,7 +21,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.WindowConstants;
 
 /**
  *
@@ -49,6 +48,9 @@ public class SignUp extends javax.swing.JFrame {
     public Color signup_button_color;
     public Color contactPanel_color;
     public Color signIn_color;
+    public Color lbl_date_color;
+    public Color lbl_time_color;
+    public Color jLayeredPane2_color;
 
     Data db = new Data();
     Time time = new Time();
@@ -66,7 +68,7 @@ public class SignUp extends javax.swing.JFrame {
         initComponents();
         modifyThis();
         //overridess
-        time.currentTimeSignUp(menu_date, menu_time);
+        time.currentTimeSignUp(lbl_date, lbl_time);
         //getDate();
         getDefaultColors();
         lbl_null_name.setVisible(false);
@@ -108,10 +110,13 @@ public class SignUp extends javax.swing.JFrame {
         chkbox_agree_color = chkbox_agree.getBackground();
         jPanel3_color = jPanel3.getBackground();
         contactPanel_color = contactPanel.getBackground();
+        jLayeredPane2_color = jLayeredPane2.getBackground();
 
         //get Default FG
         signIn_color = signIn.getForeground();
         signup_button_color = signup_button.getForeground();
+        lbl_date_color = lbl_date.getForeground();
+        lbl_time_color = lbl_date.getForeground();
     }
 
     //method to set the default BG that I got from this ^
@@ -125,11 +130,13 @@ public class SignUp extends javax.swing.JFrame {
         chkbox_agree.setBackground(chkbox_agree_color);
         jPanel3.setBackground(jPanel3_color);
         contactPanel.setBackground(contactPanel_color);
+        jLayeredPane2.setBackground(jLayeredPane2_color);
 
         //set DefaultFG
         signIn.setForeground(signIn_color);
         signup_button.setForeground(signup_button_color);
-
+        lbl_date.setForeground(lbl_date_color);
+        lbl_time.setForeground(lbl_time_color);
     }
 
     /**
@@ -154,6 +161,9 @@ public class SignUp extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        lbl_date = new javax.swing.JLabel();
+        lbl_time = new javax.swing.JLabel();
         seePassword = new javax.swing.JCheckBox();
         signIn = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -192,9 +202,6 @@ public class SignUp extends javax.swing.JFrame {
         sign_in_button = new javax.swing.JButton();
         lbl_accepted_email = new javax.swing.JLabel();
         lbl_unaccepted_email = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        menu_date = new javax.swing.JMenu();
-        menu_time = new javax.swing.JMenu();
 
         jPopupMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -227,7 +234,6 @@ public class SignUp extends javax.swing.JFrame {
         jPopupMenu1.add(menu_exit);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1290, 845));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 formMouseReleased(evt);
@@ -299,6 +305,25 @@ public class SignUp extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("DentaCare");
         lPane.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 150, 50));
+
+        jLayeredPane2.setBackground(new java.awt.Color(0, 204, 204));
+        jLayeredPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLayeredPane2.setToolTipText("");
+        jLayeredPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLayeredPane2.setOpaque(true);
+        jLayeredPane2.setLayout(new java.awt.GridLayout());
+
+        lbl_date.setFont(new java.awt.Font("DialogInput", 0, 24)); // NOI18N
+        lbl_date.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/date2.png"))); // NOI18N
+        lbl_date.setText("Date");
+        jLayeredPane2.add(lbl_date);
+
+        lbl_time.setFont(new java.awt.Font("DialogInput", 0, 24)); // NOI18N
+        lbl_time.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/clock_1.png"))); // NOI18N
+        lbl_time.setText("Time");
+        jLayeredPane2.add(lbl_time);
+
+        lPane.add(jLayeredPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 50));
 
         rPane.add(lPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 790));
 
@@ -720,26 +745,6 @@ public class SignUp extends javax.swing.JFrame {
 
         getContentPane().add(rPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1293, 789));
 
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        menu_date.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/date2.png"))); // NOI18N
-        menu_date.setText("Date");
-        menu_date.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
-        menu_date.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        menu_date.setMargin(new java.awt.Insets(0, 0, 0, 20));
-        jMenuBar1.add(menu_date);
-
-        menu_time.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/clock_1.png"))); // NOI18N
-        menu_time.setText("Time");
-        menu_time.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        menu_time.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
-        menu_time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        menu_time.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        menu_time.setMargin(new java.awt.Insets(0, 0, 0, 180));
-        jMenuBar1.add(menu_time);
-
-        setJMenuBar(jMenuBar1);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1058,7 +1063,7 @@ public class SignUp extends javax.swing.JFrame {
 
     private void menu_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_refreshActionPerformed
         // TODO add your handling code here:
-        time.currentTimeSignUp(menu_date, menu_time);
+        time.currentTimeSignUp(lbl_date, lbl_time);
         revalidate();
         repaint();
         this.doLayout();
@@ -1323,11 +1328,14 @@ public class SignUp extends javax.swing.JFrame {
             chkbox_agree.setBackground(Color.BLACK);
             jPanel3.setBackground(Color.WHITE);
             contactPanel.setBackground(Color.BLACK);
-            signIn.setForeground(Color.WHITE);
+            jLayeredPane2.setBackground(Color.DARK_GRAY);
 
             //set FG
+            signIn.setForeground(Color.WHITE);
             signup_button.setForeground(Color.BLACK);
             toggleColor.setForeground(Color.WHITE);
+            lbl_date.setForeground(Color.WHITE);
+            lbl_time.setForeground(Color.WHITE);
 
             setToggleColorIcon("/resources/default tooth.png");
             // toggleColor.setText("Default Theme");
@@ -1429,7 +1437,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JSeparator jSeparator1;
@@ -1443,17 +1451,17 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_accepted_email;
     private javax.swing.JLabel lbl_accepted_password;
     private javax.swing.JLabel lbl_capslock;
+    private javax.swing.JLabel lbl_date;
     private javax.swing.JLabel lbl_null_email;
     private javax.swing.JLabel lbl_null_name;
     private javax.swing.JLabel lbl_null_password;
     private javax.swing.JLabel lbl_null_username;
+    private javax.swing.JLabel lbl_time;
     private javax.swing.JLabel lbl_unaccepted_email;
     private javax.swing.JLabel lbl_unaccepted_password;
     private javax.swing.JMenuItem menu_clear;
-    private javax.swing.JMenu menu_date;
     private javax.swing.JMenuItem menu_exit;
     private javax.swing.JMenuItem menu_refresh;
-    private javax.swing.JMenu menu_time;
     private javax.swing.JPanel rPane;
     private javax.swing.JCheckBox seePassword;
     private javax.swing.JLabel signIn;

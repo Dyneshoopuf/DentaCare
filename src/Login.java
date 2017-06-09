@@ -40,9 +40,8 @@ public class Login extends javax.swing.JFrame {
         loginTime.currentTimeLogin(date, time);
         setLocationRelativeTo(null);
         modifyCloseButton();
-        pack();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/teethManager.png")));
-
+        pack();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registerdb", "root", "");
@@ -159,8 +158,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txt_username.setFont(new java.awt.Font("Constantia", 0, 18)); // NOI18N
+        txt_username.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         txt_username.setText("Username");
+        txt_username.setToolTipText("");
         txt_username.setBorder(null);
         txt_username.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -232,7 +232,7 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI Semilight", 0, 24)); // NOI18N
         jLabel4.setText("Login");
 
-        txt_password.setFont(new java.awt.Font("Constantia", 0, 18)); // NOI18N
+        txt_password.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         txt_password.setText("Password");
         txt_password.setBorder(null);
         txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -324,7 +324,7 @@ public class Login extends javax.swing.JFrame {
 
         registerButton.setFont(new java.awt.Font("Constantia", 0, 18)); // NOI18N
         registerButton.setForeground(new java.awt.Color(0, 204, 255));
-        registerButton.setText("Not yet registered? Click here");
+        registerButton.setText("Not yet registered? ");
         registerButton.setBorder(null);
         registerButton.setContentAreaFilled(false);
         registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -950,7 +950,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton registerButton;
     private javax.swing.JCheckBox seePassword;
     private javax.swing.JLabel time;
-    private javax.swing.JPasswordField txt_password;
-    private javax.swing.JTextField txt_username;
+    protected javax.swing.JPasswordField txt_password;
+    protected javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
 }

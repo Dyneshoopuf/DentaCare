@@ -4,7 +4,6 @@ import static java.lang.Thread.sleep;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
 
 
 /*
@@ -18,7 +17,7 @@ import javax.swing.JMenu;
  */
 public class Time {
 
-    public void currentTimeSignUp(final JMenu menu_date, final JMenu menu_time) {
+    public void currentTimeSignUp(final JLabel lbl_date, final JLabel lbl_time) {
 
         Thread clock = new Thread() {
 
@@ -29,14 +28,14 @@ public class Time {
                     int year = cal.get(Calendar.YEAR);
                     int day = cal.get(Calendar.DAY_OF_MONTH);
 
-                    menu_date.setText((month + 1) + "/" + day + "/" + year);
+                    lbl_date.setText((month + 1) + "/" + day + "/" + year);
 
                     int second = cal.get(Calendar.SECOND);
                     int zeroMinute = 0;
                     int minute = cal.get(Calendar.MINUTE);
                     int hour = cal.get(Calendar.HOUR);
 
-                    menu_time.setText(hour + ":" + (minute) + ":" + second);
+                    lbl_time.setText(hour + ":" + (minute) + ":" + second);
                     try {
                         sleep(1000);
                     } catch (Exception ex) {
