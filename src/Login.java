@@ -10,11 +10,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -33,17 +30,18 @@ public class Login extends javax.swing.JFrame {
     private PreparedStatement pst;
     String filename = null;
     byte[] person_image = null;
+    Time loginTime = new Time();
 
     /**
      * Creates new form LoginLight
      */
     public Login() {
         initComponents();
+        loginTime.currentTimeLogin(date, time);
         setLocationRelativeTo(null);
         modifyCloseButton();
         pack();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/teethManager.png")));
-        getDate();
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -52,28 +50,6 @@ public class Login extends javax.swing.JFrame {
         } catch (Exception ex) {
             System.out.println("Error: " + ex);
 
-        }
-
-    }
-
-    public void getDate() {
-
-        Calendar cal = new GregorianCalendar();
-        int month = cal.get(Calendar.MONTH);
-        int year = cal.get(Calendar.YEAR);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        date.setText((month + 1) + "/" + day + "/" + year);
-
-        int second = cal.get(Calendar.SECOND);
-        int zeroMinute = 0;
-        int minute = cal.get(Calendar.MINUTE);
-        int hour = cal.get(Calendar.HOUR);
-
-        if (minute < 10) {
-            time.setText(hour + ":" + zeroMinute + (minute) + ":" + second);
-        } else {
-            time.setText(hour + ":" + (minute) + ":" + second);
         }
 
     }
@@ -614,7 +590,7 @@ public class Login extends javax.swing.JFrame {
                  */
             } else if (count == 0 && counterUsername == 2 && counterPassword == 2) {
 
-                Processor processor = new Processor();
+                Time processor = new Time();
                 int tries = 6;
 
                 Object[] options = {"Re-try",
@@ -873,8 +849,10 @@ public class Login extends javax.swing.JFrame {
 
     private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
         // TODO add your handling code here:
-        getDate();
+        loginTime.currentTimeLogin(date, time);
         revalidate();
+        repaint();
+        this.doLayout();
     }//GEN-LAST:event_RefreshActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed

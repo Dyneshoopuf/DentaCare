@@ -91,7 +91,7 @@ public class DentalSoftwareApp {
                 if (i == 79) {
                     Thread.sleep(1000);
                     screenPop.loadingDescription.setText("Warming up...");
-                    signUp.getDate();
+           
                     signUp.revalidate();
 
                 }

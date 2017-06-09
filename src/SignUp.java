@@ -14,8 +14,6 @@ import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -23,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -49,8 +48,10 @@ public class SignUp extends javax.swing.JFrame {
     public Color jPanel3_color;
     public Color signup_button_color;
     public Color contactPanel_color;
+    public Color signIn_color;
 
     Data db = new Data();
+    Time time = new Time();
 
     //for binary pw
     private char[] getPw() {
@@ -61,20 +62,21 @@ public class SignUp extends javax.swing.JFrame {
      * Creates new form SignUp2
      */
     public SignUp() {
-        
-        revalidate();
-        repaint();
+
         initComponents();
         modifyThis();
         //overridess
-        getDate();
-        getDefaultBG();
+        time.currentTimeSignUp(menu_date, menu_time);
+        //getDate();
+        getDefaultColors();
         lbl_null_name.setVisible(false);
         lbl_null_username.setVisible(false);
         lbl_null_password.setVisible(false);
         lbl_accepted_password.setVisible(false);
         lbl_null_email.setVisible(false);
         lbl_unaccepted_password.setVisible(false);
+        lbl_accepted_email.setVisible(false);
+        lbl_unaccepted_email.setVisible(false);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -96,7 +98,7 @@ public class SignUp extends javax.swing.JFrame {
     }
 
     // method for getting the default BG of all components
-    public void getDefaultBG() {
+    public void getDefaultColors() {
         lpane_color = lPane.getBackground();
         rpane_color = rPane.getBackground();
         txt_name_color = txt_name.getBackground();
@@ -108,11 +110,12 @@ public class SignUp extends javax.swing.JFrame {
         contactPanel_color = contactPanel.getBackground();
 
         //get Default FG
+        signIn_color = signIn.getForeground();
         signup_button_color = signup_button.getForeground();
     }
 
     //method to set the default BG that I got from this ^
-    public void setDefaultBG() {
+    public void setDefaultColors() {
         lPane.setBackground(lpane_color);
         rPane.setBackground(rpane_color);
         txt_name.setBackground(txt_name_color);
@@ -124,6 +127,7 @@ public class SignUp extends javax.swing.JFrame {
         contactPanel.setBackground(contactPanel_color);
 
         //set DefaultFG
+        signIn.setForeground(signIn_color);
         signup_button.setForeground(signup_button_color);
 
     }
@@ -151,7 +155,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         seePassword = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
+        signIn = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -186,6 +190,8 @@ public class SignUp extends javax.swing.JFrame {
         contact_twitter = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         sign_in_button = new javax.swing.JButton();
+        lbl_accepted_email = new javax.swing.JLabel();
+        lbl_unaccepted_email = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_date = new javax.swing.JMenu();
         menu_time = new javax.swing.JMenu();
@@ -315,12 +321,12 @@ public class SignUp extends javax.swing.JFrame {
         });
         rPane.add(seePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 440, 40, -1));
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Constantia", 2, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Sign in");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        rPane.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 90, 80, 70));
+        signIn.setBackground(new java.awt.Color(204, 204, 204));
+        signIn.setFont(new java.awt.Font("Constantia", 2, 24)); // NOI18N
+        signIn.setForeground(new java.awt.Color(51, 51, 51));
+        signIn.setText("Sign in");
+        signIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rPane.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 90, 80, 70));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
@@ -586,7 +592,7 @@ public class SignUp extends javax.swing.JFrame {
                 toggleColorActionPerformed(evt);
             }
         });
-        rPane.add(toggleColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1260, 0, 30, 30));
+        rPane.add(toggleColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 0, 40, 40));
 
         lbl_accepted_password.setBackground(new java.awt.Color(36, 47, 65));
         lbl_accepted_password.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -698,6 +704,20 @@ public class SignUp extends javax.swing.JFrame {
         });
         rPane.add(sign_in_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 110, 70, 30));
 
+        lbl_accepted_email.setBackground(new java.awt.Color(36, 47, 65));
+        lbl_accepted_email.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lbl_accepted_email.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_accepted_email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/check.png"))); // NOI18N
+        lbl_accepted_email.setToolTipText("Your email is valid");
+        rPane.add(lbl_accepted_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 20, 20));
+
+        lbl_unaccepted_email.setBackground(new java.awt.Color(36, 47, 65));
+        lbl_unaccepted_email.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lbl_unaccepted_email.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_unaccepted_email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/invalid.png"))); // NOI18N
+        lbl_unaccepted_email.setToolTipText("This is not a valid email");
+        rPane.add(lbl_unaccepted_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 20, 20));
+
         getContentPane().add(rPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1293, 789));
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -723,28 +743,28 @@ public class SignUp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void getDate() {
+    /* public void getDate() {
 
-        Calendar cal = new GregorianCalendar();
-        int month = cal.get(Calendar.MONTH);
-        int year = cal.get(Calendar.YEAR);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
+     Calendar cal = new GregorianCalendar();
+     int month = cal.get(Calendar.MONTH);
+     int year = cal.get(Calendar.YEAR);
+     int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        menu_date.setText((month + 1) + "/" + day + "/" + year);
+     menu_date.setText((month + 1) + "/" + day + "/" + year);
 
-        int second = cal.get(Calendar.SECOND);
-        int zeroMinute = 0;
-        int minute = cal.get(Calendar.MINUTE);
-        int hour = cal.get(Calendar.HOUR);
+     int second = cal.get(Calendar.SECOND);
+     int zeroMinute = 0;
+     int minute = cal.get(Calendar.MINUTE);
+     int hour = cal.get(Calendar.HOUR);
 
-        if (minute < 10) {
-            menu_time.setText(hour + ":" + zeroMinute + (minute) + ":" + second);
-        } else {
-            menu_time.setText(hour + ":" + (minute) + ":" + second);
-        }
+     if (minute < 10) {
+     menu_time.setText(hour + ":" + zeroMinute + (minute) + ":" + second);
+     } else {
+     menu_time.setText(hour + ":" + (minute) + ":" + second);
+     }
 
-    }
-
+     }
+     */
     private void modifyThis() {
         setTitle("DentaCare Alpha");
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/teethManager.png")));
@@ -858,7 +878,7 @@ public class SignUp extends javax.swing.JFrame {
 
                     //check for password validity
                     if (pass_length > 7 && pass_length < 21) {
-                        if (email_valid.contains("@") && email_valid.contains(".com")) {
+                        if (email_valid.contains("@") && email_valid.contains(".com") && email_valid.contains("gmail") || email_valid.contains("yahoo")) {
 
                             String user = txt_username.getText().trim();
                             String email = txt_email.getText().trim();
@@ -930,7 +950,7 @@ public class SignUp extends javax.swing.JFrame {
 
                             }
                         } else {
-                            JOptionPane.showMessageDialog(null, "Your email is not acceptable. Please try a different email", "Sign Up Failed!", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "That is not a valid email. Please enter a valid email", "Sign Up Failed!", JOptionPane.ERROR_MESSAGE);
                             System.out.println("checking email validity...");
                         }
                     } else {
@@ -942,7 +962,7 @@ public class SignUp extends javax.swing.JFrame {
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Make sure you fill-up all fields completely and agree to the terms and conditions of using this software before we process your registration", "Sign Up Failed. Please Try Again!", JOptionPane.ERROR_MESSAGE);
-                    System.out.println("im in 4th condition");
+
                 }
             }
 
@@ -956,11 +976,8 @@ public class SignUp extends javax.swing.JFrame {
 
                     rs.close();
                     pst.close();
-                    System.out.println("im in 5th condition");
 
                 } catch (Exception e) {
-
-                    System.out.println("im in 6th condition");
 
                 }
 
@@ -1041,8 +1058,10 @@ public class SignUp extends javax.swing.JFrame {
 
     private void menu_refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_refreshActionPerformed
         // TODO add your handling code here:
-        getDate();
+        time.currentTimeSignUp(menu_date, menu_time);
         revalidate();
+        repaint();
+        this.doLayout();
     }//GEN-LAST:event_menu_refreshActionPerformed
 
     private void menu_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_exitActionPerformed
@@ -1157,8 +1176,23 @@ public class SignUp extends javax.swing.JFrame {
 
     private void txt_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusLost
         // TODO add your handling code here:
+        String email_valid = txt_email.getText().trim();
         if (txt_email.getText().equals(empty)) {
             lbl_null_email.setVisible(true);
+            lbl_accepted_email.setVisible(false);
+            lbl_unaccepted_email.setVisible(false);
+        } else if (!txt_email.getText().equals(empty) && !txt_email.getText().equalsIgnoreCase("Your email here") && (email_valid.contains("@") && email_valid.contains(".com")
+                && email_valid.contains("gmail") || email_valid.contains("yahoo"))) {
+
+            lbl_accepted_email.setVisible(true);
+            lbl_null_email.setVisible(false);
+            lbl_unaccepted_email.setVisible(false);
+
+        } else if (!email_valid.contains("@") && !email_valid.contains(".com") && !email_valid.contains("gmail") || !email_valid.contains("yahoo")) {
+
+            lbl_accepted_email.setVisible(false);
+            lbl_unaccepted_email.setVisible(true);
+            lbl_null_email.setVisible(false);
         }
     }//GEN-LAST:event_txt_emailFocusLost
 
@@ -1280,7 +1314,7 @@ public class SignUp extends javax.swing.JFrame {
     private void toggleColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleColorActionPerformed
         // TODO add your handling code here:
         if (toggleColor.isSelected()) {
-            lPane.setBackground(Color.BLACK);
+            lPane.setBackground(Color.GRAY);
             rPane.setBackground(Color.BLACK);
             txt_name.setBackground(Color.BLACK);
             txt_username.setBackground(Color.BLACK);
@@ -1289,6 +1323,7 @@ public class SignUp extends javax.swing.JFrame {
             chkbox_agree.setBackground(Color.BLACK);
             jPanel3.setBackground(Color.WHITE);
             contactPanel.setBackground(Color.BLACK);
+            signIn.setForeground(Color.WHITE);
 
             //set FG
             signup_button.setForeground(Color.BLACK);
@@ -1299,7 +1334,7 @@ public class SignUp extends javax.swing.JFrame {
 
         } else {
             //set Default BG color 
-            setDefaultBG();
+            setDefaultColors();
             // toggleColor.setText("Dark Theme");
             toggleColor.setForeground(Color.BLACK);
             setToggleColorIcon("/resources/dark tooth.png");
@@ -1389,7 +1424,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1406,12 +1440,14 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JPanel lPane;
+    private javax.swing.JLabel lbl_accepted_email;
     private javax.swing.JLabel lbl_accepted_password;
     private javax.swing.JLabel lbl_capslock;
     private javax.swing.JLabel lbl_null_email;
     private javax.swing.JLabel lbl_null_name;
     private javax.swing.JLabel lbl_null_password;
     private javax.swing.JLabel lbl_null_username;
+    private javax.swing.JLabel lbl_unaccepted_email;
     private javax.swing.JLabel lbl_unaccepted_password;
     private javax.swing.JMenuItem menu_clear;
     private javax.swing.JMenu menu_date;
@@ -1420,6 +1456,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JMenu menu_time;
     private javax.swing.JPanel rPane;
     private javax.swing.JCheckBox seePassword;
+    private javax.swing.JLabel signIn;
     private javax.swing.JButton sign_in_button;
     private javax.swing.JButton signup_button;
     private javax.swing.JToggleButton toggleColor;
