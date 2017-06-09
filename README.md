@@ -13,7 +13,7 @@ Key features of DentaCare: <br>
 <ul> <li> The most friendly and customizeable UI in this era you'll find! </li> 
 <ul> <li> Choose your own font, background colors and a lot more customizeable options! </li> </ul> <p> <br>
 
-<a href= "https://www.facebook.com/groups/473984372933874/"> <u> See the software makers in Facebook </u> </a> 
+<a href= "https://www.facebook.com/groups/473984372933874/"> <u> See the software makers in Facebook </u> </a> <br>
 dyneshoopuf - Justine Roy Olaguer <br>
 rj-anne - Julliah Anne Reyes <br>
 
