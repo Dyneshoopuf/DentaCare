@@ -2,7 +2,7 @@
 <img src="sc.PNG" alt="HTML5 Icon" style="width:1290px;height:845px;"> <p>
 <h1> Introduction
 </h1> 
-DentaCare is a simple and reliable Software Application built (and is still being built) for dental management and operation. <br>
+DentaCare is a simple and reliable Software Application built (and is still being built) for dental management and operation. <br> <br>
 Key features of DentaCare: <br>
 <ul style="list-style-type:circle">
 <li> Keep track of patients' record </li>
