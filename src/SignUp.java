@@ -7,6 +7,7 @@ package dentalsoftwareapp;
 
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.sql.*;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -67,9 +68,11 @@ public class SignUp extends javax.swing.JFrame {
 
         initComponents();
         modifyThis();
-        //overridess
+        final int height = this.getHeight();
+        final int width = this.getWidth();
+        final Dimension default_dimension = new Dimension(width, height);
+        //overrides
         time.currentTimeSignUp(lbl_date, lbl_time);
-        //getDate();
         getDefaultColors();
         lbl_null_name.setVisible(false);
         lbl_null_username.setVisible(false);
@@ -137,6 +140,7 @@ public class SignUp extends javax.swing.JFrame {
         signup_button.setForeground(signup_button_color);
         lbl_date.setForeground(lbl_date_color);
         lbl_time.setForeground(lbl_time_color);
+
     }
 
     /**
@@ -202,6 +206,7 @@ public class SignUp extends javax.swing.JFrame {
         sign_in_button = new javax.swing.JButton();
         lbl_accepted_email = new javax.swing.JLabel();
         lbl_unaccepted_email = new javax.swing.JLabel();
+        settingButton = new javax.swing.JButton();
 
         jPopupMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -311,7 +316,7 @@ public class SignUp extends javax.swing.JFrame {
         jLayeredPane2.setToolTipText("");
         jLayeredPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLayeredPane2.setOpaque(true);
-        jLayeredPane2.setLayout(new java.awt.GridLayout());
+        jLayeredPane2.setLayout(new java.awt.GridLayout(1, 0));
 
         lbl_date.setFont(new java.awt.Font("DialogInput", 0, 24)); // NOI18N
         lbl_date.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/date2.png"))); // NOI18N
@@ -325,7 +330,7 @@ public class SignUp extends javax.swing.JFrame {
 
         lPane.add(jLayeredPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 50));
 
-        rPane.add(lPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 790));
+        rPane.add(lPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 780));
 
         seePassword.setBorder(null);
         seePassword.setContentAreaFilled(false);
@@ -344,28 +349,28 @@ public class SignUp extends javax.swing.JFrame {
                 seePasswordActionPerformed(evt);
             }
         });
-        rPane.add(seePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 440, 40, -1));
+        rPane.add(seePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 380, 40, -1));
 
         signIn.setBackground(new java.awt.Color(204, 204, 204));
         signIn.setFont(new java.awt.Font("Constantia", 2, 24)); // NOI18N
         signIn.setForeground(new java.awt.Color(51, 51, 51));
         signIn.setText("Sign in");
         signIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        rPane.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 90, 80, 70));
+        rPane.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, 80, 70));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("FULL NAME");
-        rPane.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 210, 80, 40));
+        rPane.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 150, 80, 40));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("PASSWORD");
-        rPane.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 390, 80, 40));
-        rPane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 630, 140, 10));
-        rPane.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 470, 10));
-        rPane.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 470, 10));
-        rPane.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 470, 470, 10));
+        rPane.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, 80, 40));
+        rPane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 570, 140, 10));
+        rPane.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 470, 10));
+        rPane.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 320, 470, 10));
+        rPane.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 410, 470, 10));
 
         txt_email.setBackground(new java.awt.Color(0, 204, 255));
         txt_email.setFont(new java.awt.Font("Century", 0, 18)); // NOI18N
@@ -390,7 +395,7 @@ public class SignUp extends javax.swing.JFrame {
                 txt_emailKeyPressed(evt);
             }
         });
-        rPane.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 470, 30));
+        rPane.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 470, 470, 30));
 
         txt_name.setBackground(new java.awt.Color(0, 204, 255));
         txt_name.setFont(new java.awt.Font("Century", 0, 18)); // NOI18N
@@ -429,7 +434,7 @@ public class SignUp extends javax.swing.JFrame {
                 txt_nameKeyTyped(evt);
             }
         });
-        rPane.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 260, 470, 30));
+        rPane.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, 470, 30));
 
         txt_username.setBackground(new java.awt.Color(0, 204, 255));
         txt_username.setFont(new java.awt.Font("Century", 0, 18)); // NOI18N
@@ -455,7 +460,7 @@ public class SignUp extends javax.swing.JFrame {
                 txt_usernameKeyPressed(evt);
             }
         });
-        rPane.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 350, 470, 30));
+        rPane.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, 470, 30));
 
         txt_password.setBackground(new java.awt.Color(0, 204, 255));
         txt_password.setFont(new java.awt.Font("Century", 0, 18)); // NOI18N
@@ -491,7 +496,7 @@ public class SignUp extends javax.swing.JFrame {
                 txt_passwordKeyPressed(evt);
             }
         });
-        rPane.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 440, 430, 30));
+        rPane.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, 430, 30));
 
         chkbox_agree.setBackground(new java.awt.Color(0, 204, 255));
         chkbox_agree.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -503,7 +508,7 @@ public class SignUp extends javax.swing.JFrame {
                 chkbox_agreeActionPerformed(evt);
             }
         });
-        rPane.add(chkbox_agree, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 600, -1, -1));
+        rPane.add(chkbox_agree, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 540, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -529,13 +534,13 @@ public class SignUp extends javax.swing.JFrame {
         });
         jPanel3.add(signup_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 50));
 
-        rPane.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 650, 210, 50));
+        rPane.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 590, 210, 50));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Contact Us");
-        rPane.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 680, 80, 30));
-        rPane.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 560, 470, 10));
+        rPane.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 620, 80, 30));
+        rPane.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 500, 470, 10));
 
         jButton3.setBackground(new java.awt.Color(36, 47, 65));
         jButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -548,62 +553,62 @@ public class SignUp extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        rPane.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 610, 140, 20));
+        rPane.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 550, 140, 20));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
         jLabel10.setText("Already a member?");
-        rPane.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 610, 140, 20));
+        rPane.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 550, 140, 20));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
         jLabel12.setText("USERNAME");
-        rPane.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 300, 80, 40));
+        rPane.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 240, 80, 40));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("EMAIL");
-        rPane.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 480, 50, 40));
+        rPane.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 50, 40));
 
         lbl_null_name.setBackground(new java.awt.Color(36, 47, 65));
         lbl_null_name.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_null_name.setForeground(new java.awt.Color(255, 255, 255));
         lbl_null_name.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nullfield.png"))); // NOI18N
         lbl_null_name.setToolTipText("Cannot be blank");
-        rPane.add(lbl_null_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 270, 20, 20));
+        rPane.add(lbl_null_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 20, 20));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(204, 204, 204));
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/security checked.png"))); // NOI18N
         jLabel15.setToolTipText("This software is highly optimized to prevent any unathorized access (eg., hackers)");
-        rPane.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 20, 20));
+        rPane.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 340, 20, 20));
 
         lbl_null_username.setBackground(new java.awt.Color(36, 47, 65));
         lbl_null_username.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_null_username.setForeground(new java.awt.Color(255, 255, 255));
         lbl_null_username.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nullfield.png"))); // NOI18N
         lbl_null_username.setToolTipText("Cannot be blank");
-        rPane.add(lbl_null_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 360, 20, 20));
+        rPane.add(lbl_null_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 300, 20, 20));
 
         lbl_null_password.setBackground(new java.awt.Color(36, 47, 65));
         lbl_null_password.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_null_password.setForeground(new java.awt.Color(255, 255, 255));
         lbl_null_password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nullfield.png"))); // NOI18N
         lbl_null_password.setToolTipText("Cannot be blank");
-        rPane.add(lbl_null_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, 20, 20));
+        rPane.add(lbl_null_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 20, 20));
 
         lbl_null_email.setBackground(new java.awt.Color(36, 47, 65));
         lbl_null_email.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_null_email.setForeground(new java.awt.Color(255, 255, 255));
         lbl_null_email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nullfield.png"))); // NOI18N
         lbl_null_email.setToolTipText("Cannot be blank");
-        rPane.add(lbl_null_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 20, 20));
+        rPane.add(lbl_null_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 20, 20));
 
         lbl_capslock.setBackground(new java.awt.Color(36, 47, 65));
         lbl_capslock.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lbl_capslock.setForeground(new java.awt.Color(255, 255, 255));
         lbl_capslock.setToolTipText("Cannot be blank");
-        rPane.add(lbl_capslock, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 230, 140, 20));
+        rPane.add(lbl_capslock, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 170, 140, 20));
 
         toggleColor.setFont(new java.awt.Font("Century Schoolbook", 1, 14)); // NOI18N
         toggleColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/dark tooth.png"))); // NOI18N
@@ -617,21 +622,21 @@ public class SignUp extends javax.swing.JFrame {
                 toggleColorActionPerformed(evt);
             }
         });
-        rPane.add(toggleColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 0, 40, 40));
+        rPane.add(toggleColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 0, 40, 40));
 
         lbl_accepted_password.setBackground(new java.awt.Color(36, 47, 65));
         lbl_accepted_password.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_accepted_password.setForeground(new java.awt.Color(255, 255, 255));
         lbl_accepted_password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/check.png"))); // NOI18N
         lbl_accepted_password.setToolTipText("Your password strength is up to our standards!");
-        rPane.add(lbl_accepted_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, 20, 20));
+        rPane.add(lbl_accepted_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 20, 20));
 
         lbl_unaccepted_password.setBackground(new java.awt.Color(36, 47, 65));
         lbl_unaccepted_password.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_unaccepted_password.setForeground(new java.awt.Color(255, 255, 255));
         lbl_unaccepted_password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/invalid.png"))); // NOI18N
         lbl_unaccepted_password.setToolTipText("Your password is unacceptable");
-        rPane.add(lbl_unaccepted_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, 20, 20));
+        rPane.add(lbl_unaccepted_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 20, 20));
 
         contactPanel.setBackground(new java.awt.Color(0, 204, 255));
 
@@ -711,12 +716,12 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        rPane.add(contactPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 710, 240, 80));
+        rPane.add(contactPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 650, 240, 80));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Sign Up or ");
-        rPane.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 130, 40));
+        rPane.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 130, 40));
 
         sign_in_button.setBackground(new java.awt.Color(0, 204, 255));
         sign_in_button.setBorder(null);
@@ -727,23 +732,36 @@ public class SignUp extends javax.swing.JFrame {
                 sign_in_buttonActionPerformed(evt);
             }
         });
-        rPane.add(sign_in_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 110, 70, 30));
+        rPane.add(sign_in_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 70, 70, 30));
 
         lbl_accepted_email.setBackground(new java.awt.Color(36, 47, 65));
         lbl_accepted_email.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_accepted_email.setForeground(new java.awt.Color(255, 255, 255));
         lbl_accepted_email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/check.png"))); // NOI18N
         lbl_accepted_email.setToolTipText("Your email is valid");
-        rPane.add(lbl_accepted_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 20, 20));
+        rPane.add(lbl_accepted_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 20, 20));
 
         lbl_unaccepted_email.setBackground(new java.awt.Color(36, 47, 65));
         lbl_unaccepted_email.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_unaccepted_email.setForeground(new java.awt.Color(255, 255, 255));
         lbl_unaccepted_email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/invalid.png"))); // NOI18N
         lbl_unaccepted_email.setToolTipText("This is not a valid email");
-        rPane.add(lbl_unaccepted_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 20, 20));
+        rPane.add(lbl_unaccepted_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 20, 20));
 
-        getContentPane().add(rPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1293, 789));
+        settingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/support.png"))); // NOI18N
+        settingButton.setContentAreaFilled(false);
+        settingButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        settingButton.setFocusable(false);
+        settingButton.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Support big.png"))); // NOI18N
+        settingButton.setVerifyInputWhenFocusTarget(false);
+        settingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                settingButtonActionPerformed(evt);
+            }
+        });
+        rPane.add(settingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 0, 40, 40));
+
+        getContentPane().add(rPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -774,8 +792,8 @@ public class SignUp extends javax.swing.JFrame {
         setTitle("DentaCare Alpha");
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/teethManager.png")));
         setResizable(false);
-        pack();
         setLocationRelativeTo(null);
+        pack();
     }
 
 
@@ -1383,6 +1401,10 @@ public class SignUp extends javax.swing.JFrame {
 
     }//GEN-LAST:event_sign_in_buttonActionPerformed
 
+    private void settingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_settingButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1464,6 +1486,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JMenuItem menu_refresh;
     private javax.swing.JPanel rPane;
     private javax.swing.JCheckBox seePassword;
+    private javax.swing.JButton settingButton;
     private javax.swing.JLabel signIn;
     private javax.swing.JButton sign_in_button;
     private javax.swing.JButton signup_button;
