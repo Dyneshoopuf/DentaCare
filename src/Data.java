@@ -45,9 +45,9 @@ public class Data {
                 String username = rs.getString("Username");
                 System.out.println("ID: " + id + " Name: " + name + "Username:" + username);
             }
-            System.out.println("No registered user/s found");
+
         } catch (Exception ex) {
-            System.out.println(ex);
+            System.out.println("No registered user/s was/were found");
         }
     }
 
@@ -61,9 +61,8 @@ public class Data {
                 x += 1;
             }
             if (x == 0) {
-                System.out.println("There is no license key available to use");
-                System.out.println("Force closing the app...");
-                System.exit(1);
+                System.out.println("No license key found! Registration is unavaiable.");
+
             } else if (x == 1) {
                 System.out.println("1 License found and is ready to use");
             } else if (x > 1) {

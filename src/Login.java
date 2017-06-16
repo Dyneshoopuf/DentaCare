@@ -98,6 +98,7 @@ public class Login extends javax.swing.JFrame {
         seePassword = new javax.swing.JCheckBox();
         date = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
+        lbl_numlock = new javax.swing.JLabel();
         loader = new javax.swing.JPanel();
         img_loader = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -235,14 +236,25 @@ public class Login extends javax.swing.JFrame {
         txt_password.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         txt_password.setText("Password");
         txt_password.setBorder(null);
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordActionPerformed(evt);
+            }
+        });
         txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_passwordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_passwordFocusLost(evt);
             }
         });
         txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_passwordKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_passwordKeyReleased(evt);
             }
         });
 
@@ -265,6 +277,7 @@ public class Login extends javax.swing.JFrame {
         maximizeButton.setBorder(null);
         maximizeButton.setContentAreaFilled(false);
         maximizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        maximizeButton.setEnabled(false);
         maximizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 maximizeButtonMouseEntered(evt);
@@ -340,9 +353,10 @@ public class Login extends javax.swing.JFrame {
 
         seePassword.setBorder(null);
         seePassword.setContentAreaFilled(false);
-        seePassword.setFocusPainted(false);
-        seePassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/antieye.png"))); // NOI18N
-        seePassword.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/eye.png"))); // NOI18N
+        seePassword.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        seePassword.setFocusable(false);
+        seePassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/antieye2.png"))); // NOI18N
+        seePassword.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/eye2.png"))); // NOI18N
         seePassword.setVerifyInputWhenFocusTarget(false);
         seePassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -360,6 +374,8 @@ public class Login extends javax.swing.JFrame {
 
         time.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         time.setText("Time");
+
+        lbl_numlock.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout loginLayout = new javax.swing.GroupLayout(login);
         login.setLayout(loginLayout);
@@ -401,7 +417,8 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_capslock, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_capslock2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lbl_capslock2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_numlock, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(49, 49, 49))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
@@ -441,15 +458,19 @@ public class Login extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel4)
                 .addGap(61, 61, 61)
-                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(loginLayout.createSequentialGroup()
                         .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_capslock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))
+                    .addGroup(loginLayout.createSequentialGroup()
+                        .addComponent(lbl_capslock, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbl_numlock, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginLayout.createSequentialGroup()
                         .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -470,7 +491,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(forgotpasswordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 48, Short.MAX_VALUE)))
+                        .addGap(0, 43, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginLayout.createSequentialGroup()
@@ -492,7 +513,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 204, 255));
         jLabel1.setText("Logging in...");
         loader.add(jLabel1);
-        jLabel1.setBounds(310, 370, 97, 25);
+        jLabel1.setBounds(310, 370, 98, 22);
 
         jPanel1.add(loader, "card3");
 
@@ -506,7 +527,7 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+            .addComponent(pnl_bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 454, Short.MAX_VALUE)
         );
 
         pack();
@@ -517,11 +538,6 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         loader.setVisible(true);
         login.setVisible(false);
-        try {
-
-        } catch (Exception ex) {
-
-        }
 
         int count = 0;
         int counterUsername = 1;
@@ -532,13 +548,18 @@ public class Login extends javax.swing.JFrame {
             String username = txt_username.getText().trim();
             char[] charPassword = txt_password.getPassword();
             String password = String.valueOf(charPassword);
+            //final conversion:  //byte[] bytepass = password.getBytes();
 
             String loginQuery = "SELECT Username and Password FROM registertbl WHERE Username= '" + username + "' and Password = '" + password + "'";
+            // String checkCase = rs.getString("Password");
+            // if (password.equals(checkCase)) 
 
             rs = st.executeQuery(loginQuery);
+            //
 
             while (rs.next()) {
                 count = count + 1;
+
             }
             if (txt_username.getText().trim().equalsIgnoreCase("")) {
 
@@ -548,19 +569,20 @@ public class Login extends javax.swing.JFrame {
                 counterUsername += 1;
 
             }
-            if (String.valueOf(txt_password.getPassword()).equalsIgnoreCase("")) {
+            if (String.valueOf(txt_password.getPassword()).equals("")) {
 
                 counterPassword -= 1;
 
-            } else if (!String.valueOf(txt_password.getPassword()).equalsIgnoreCase("")) {
+            } else if (!String.valueOf(txt_password.getPassword()).equals("")) {
                 counterPassword += 1;
 
             }
             System.out.println("counterUsername is " + counterUsername);
             System.out.println("counterPassword is " + counterPassword);
-            if (count == 1) {
+            System.out.println(count);
 
-                System.out.println("success log in!");
+            if (count == 1) {
+                System.out.println("logged in successfully!");
                 this.dispose();
                 Home home = new Home();
                 home.setVisible(true);
@@ -590,7 +612,6 @@ public class Login extends javax.swing.JFrame {
                  */
             } else if (count == 0 && counterUsername == 2 && counterPassword == 2) {
 
-                Time processor = new Time();
                 int tries = 6;
 
                 Object[] options = {"Re-try",
@@ -616,6 +637,10 @@ public class Login extends javax.swing.JFrame {
                     } else if (tries >= 6) {
                         JOptionPane.showMessageDialog(null, "You have entered incorrect log-in information multiple times! Try again later...", "Closing app...", JOptionPane.ERROR_MESSAGE);
                         System.exit(1);
+
+                        //revise
+                        //store timer into ScreenPop 
+                        //Timer timer = new Timer();
                     }
 
                 }
@@ -639,6 +664,10 @@ public class Login extends javax.swing.JFrame {
 
             } else if (counterUsername < 1 && counterPassword == 2) {
                 JOptionPane.showMessageDialog(null, "Username cannot be blank", "Login failed ", JOptionPane.ERROR_MESSAGE);
+                login.setVisible(true);
+                loader.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "You are experiencing a log-in issue with your account. Try resetting your password.", "Login failed ", JOptionPane.ERROR_MESSAGE);
                 login.setVisible(true);
                 loader.setVisible(false);
             }
@@ -786,11 +815,17 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         boolean checkCapsState = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+        boolean checkNumLockState = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_NUM_LOCK);
 
         if (checkCapsState == true) {
             lbl_capslock.setText("CAPS LOCK is on");
         } else {
             lbl_capslock.setText("CAPS LOCK is off");
+        }
+        if (checkNumLockState == true) {
+            lbl_numlock.setText("NUM LOCK is on");
+        } else {
+            lbl_numlock.setText("NUM LOCK is off");
         }
     }//GEN-LAST:event_txt_usernameKeyPressed
 
@@ -798,11 +833,155 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         boolean checkCapsState = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+        boolean checkNumLockState = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_NUM_LOCK);
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            loader.setVisible(true);
+            login.setVisible(false);
+            try {
+
+            } catch (Exception ex) {
+
+            }
+
+            int count = 0;
+            int counterUsername = 1;
+            int counterPassword = 1;
+
+            try {
+                //  String sql = "SELECT `Username`, `Password` FROM `registertbl` WHERE `Username`= ? and `Password` = ?";
+                String username = txt_username.getText().trim();
+                char[] charPassword = txt_password.getPassword();
+                String password = String.valueOf(charPassword);
+
+                String loginQuery = "SELECT Username and Password FROM registertbl WHERE Username= '" + username + "' and Password = '" + password + "'";
+
+                rs = st.executeQuery(loginQuery);
+
+                while (rs.next()) {
+                    count = count + 1;
+                }
+                if (txt_username.getText().trim().equalsIgnoreCase("")) {
+
+                    counterUsername -= 1;
+
+                } else if (!txt_username.getText().trim().equalsIgnoreCase("")) {
+                    counterUsername += 1;
+
+                }
+                if (String.valueOf(txt_password.getPassword()).equals("")) {
+
+                    counterPassword -= 1;
+
+                } else if (!String.valueOf(txt_password.getPassword()).equals("")) {
+                    counterPassword += 1;
+
+                }
+                System.out.println("counterUsername is " + counterUsername);
+                System.out.println("counterPassword is " + counterPassword);
+                if (count == 1) {
+
+                    System.out.println("logged in successfully!");
+                    this.dispose();
+                    Home home = new Home();
+                    home.setVisible(true);
+                    home.setLocationRelativeTo(this);
+
+                    //continue revise here
+                    /*  
+                     ImageIcon imageIcon = new ImageIcon(new ImageIcon(filename).getImage().getScaledInstance(home.lbl_img.getWidth(), home.lbl_img.getHeight(), Image.SCALE_DEFAULT));
+                     home.lbl_img.setIcon(imageIcon);
+                     try {
+
+                     File image = new File(filename);
+                     FileInputStream fis = new FileInputStream(image);
+                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                     byte[] buf = new byte[1024];
+
+                     for (int readNum; (readNum = fis.read(buf)) != -1;) {
+
+                     bos.write(buf, 0, readNum);
+                     }
+                     person_image = bos.toByteArray();
+                     } catch (Exception e) {
+                     JOptionPane.showMessageDialog(null, e);
+
+                     }
+                
+                     */
+                } else if (count == 0 && counterUsername == 2 && counterPassword == 2) {
+
+                    Time processor = new Time();
+                    int tries = 6;
+
+                    Object[] options = {"Re-try",
+                        "Cancel"};
+                    int userOption = JOptionPane.showOptionDialog(null, "Username and or password is are incorrect.",
+                            "Login failed!",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE,
+                            new ImageIcon(getClass().getResource("/resources/access denied.png")),
+                            options,
+                            options[0]);
+
+                    if (userOption == 0) {
+
+                        if (tries < 7) {
+                            tries += 1;
+                            Thread.sleep(1500);
+
+                            revalidate();
+
+                            login.setVisible(true);
+                            loader.setVisible(false);
+                        } else if (tries >= 6) {
+                            JOptionPane.showMessageDialog(null, "You have entered incorrect log-in information multiple times! Try again later...", "Closing app...", JOptionPane.ERROR_MESSAGE);
+                            System.exit(1);
+
+                            //revise
+                            //store timer into ScreenPop 
+                            //Timer timer = new Timer();
+                        }
+
+                    }
+                    if (userOption == 1) {
+                        login.setVisible(true);
+                        loader.setVisible(false);
+                    }
+                    //JOptionPane.showMessageDialog(this, "Username and or password is or are incorrect", "Login Failed!", JOptionPane.ERROR_MESSAGE);
+                    // processor.loginProduce();
+                    //Thread.sleep(1999);
+                    // loader.setVisible(false);
+
+                } else if (counterUsername < 1 && counterPassword < 1) {
+                    JOptionPane.showMessageDialog(null, "Username and password cannot be blank", "Login failed ", JOptionPane.ERROR_MESSAGE);
+                    login.setVisible(true);
+                    loader.setVisible(false);
+                } else if (counterUsername == 2 && counterPassword < 1) {
+                    JOptionPane.showMessageDialog(null, "Password cannot be blank", "Login failed ", JOptionPane.ERROR_MESSAGE);
+                    login.setVisible(true);
+                    loader.setVisible(false);
+
+                } else if (counterUsername < 1 && counterPassword == 2) {
+                    JOptionPane.showMessageDialog(null, "Username cannot be blank", "Login failed ", JOptionPane.ERROR_MESSAGE);
+                    login.setVisible(true);
+                    loader.setVisible(false);
+                }
+            } catch (Exception e) {
+
+            }
+
+        }
 
         if (checkCapsState == true) {
             lbl_capslock.setText("CAPS LOCK is on");
         } else {
             lbl_capslock.setText("CAPS LOCK is off");
+        }
+        if (checkNumLockState == true) {
+            lbl_numlock.setText("NUM LOCK is on");
+        } else {
+            lbl_numlock.setText("NUM LOCK is off");
         }
     }//GEN-LAST:event_txt_passwordKeyPressed
 
@@ -878,6 +1057,18 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jPanel2MouseEntered
 
+    private void txt_passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_passwordFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordFocusLost
+
+    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordActionPerformed
+
+    private void txt_passwordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passwordKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -941,6 +1132,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lbl_capslock;
     private javax.swing.JLabel lbl_capslock2;
+    private javax.swing.JLabel lbl_numlock;
     private javax.swing.JPanel loader;
     private javax.swing.JPanel login;
     private javax.swing.JButton login_button;

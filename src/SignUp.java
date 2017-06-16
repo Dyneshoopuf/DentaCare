@@ -15,10 +15,12 @@ import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -52,7 +54,7 @@ public class SignUp extends javax.swing.JFrame {
     public Color lbl_date_color;
     public Color lbl_time_color;
     public Color jLayeredPane2_color;
-
+    
     Data db = new Data();
     Time time = new Time();
 
@@ -65,7 +67,6 @@ public class SignUp extends javax.swing.JFrame {
      * Creates new form SignUp2
      */
     public SignUp() {
-
         initComponents();
         modifyThis();
         final int height = this.getHeight();
@@ -82,7 +83,7 @@ public class SignUp extends javax.swing.JFrame {
         lbl_unaccepted_password.setVisible(false);
         lbl_accepted_email.setVisible(false);
         lbl_unaccepted_email.setVisible(false);
-
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registerdb", "root", "");
@@ -91,7 +92,7 @@ public class SignUp extends javax.swing.JFrame {
             System.out.println("Error: " + ex);
         }
     }
-
+    
     public void setToggleColorIcon(String toggleColor_icon) {
         URL url = getClass().getResource(toggleColor_icon);
         try {
@@ -140,7 +141,7 @@ public class SignUp extends javax.swing.JFrame {
         signup_button.setForeground(signup_button_color);
         lbl_date.setForeground(lbl_date_color);
         lbl_time.setForeground(lbl_time_color);
-
+        
     }
 
     /**
@@ -168,6 +169,7 @@ public class SignUp extends javax.swing.JFrame {
         jLayeredPane2 = new javax.swing.JLayeredPane();
         lbl_date = new javax.swing.JLabel();
         lbl_time = new javax.swing.JLabel();
+        licenseButton = new javax.swing.JButton();
         seePassword = new javax.swing.JCheckBox();
         signIn = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -180,7 +182,6 @@ public class SignUp extends javax.swing.JFrame {
         txt_name = new javax.swing.JTextField();
         txt_username = new javax.swing.JTextField();
         txt_password = new javax.swing.JPasswordField();
-        chkbox_agree = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
         signup_button = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -207,6 +208,9 @@ public class SignUp extends javax.swing.JFrame {
         lbl_accepted_email = new javax.swing.JLabel();
         lbl_unaccepted_email = new javax.swing.JLabel();
         settingButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        chkbox_agree = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
 
         jPopupMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -246,18 +250,21 @@ public class SignUp extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rPane.setBackground(new java.awt.Color(0, 204, 255));
-        rPane.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rPaneMouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                rPaneMouseReleased(evt);
-            }
-        });
+        rPane.setBackground(new java.awt.Color(74, 67, 102));
         rPane.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 rPaneFocusGained(evt);
+            }
+        });
+        rPane.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rPaneMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rPaneMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                rPaneMouseEntered(evt);
             }
         });
         rPane.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -267,7 +274,7 @@ public class SignUp extends javax.swing.JFrame {
         });
         rPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lPane.setBackground(new java.awt.Color(0, 102, 102));
+        lPane.setBackground(new java.awt.Color(155, 110, 163));
         lPane.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lPaneMouseClicked(evt);
@@ -281,7 +288,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Century Schoolbook", 2, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 204, 255));
         jLabel3.setText("Alpha");
-        lPane.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 50, 30));
+        lPane.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 50, 30));
 
         jSeparator2.setBackground(new java.awt.Color(36, 47, 65));
         jSeparator2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -289,29 +296,29 @@ public class SignUp extends javax.swing.JFrame {
 
         jSeparator6.setBackground(new java.awt.Color(36, 47, 65));
         jSeparator6.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        lPane.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 570, 20));
+        lPane.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 570, 20));
 
         jLabel11.setFont(new java.awt.Font("Century Schoolbook", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("<LOGO HERE> ");
-        lPane.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, -1, 120));
+        lPane.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, 120));
 
         jLabel9.setFont(new java.awt.Font("Century Schoolbook", 1, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("A dentist gets to the root of the problem");
-        lPane.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 50));
+        lPane.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 50));
 
         jLabel6.setFont(new java.awt.Font("Century Schoolbook", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Keep track of your patients with ");
-        lPane.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 420, 50));
+        lPane.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 420, 50));
 
         jLabel14.setFont(new java.awt.Font("Century Schoolbook", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("DentaCare");
-        lPane.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 150, 50));
+        lPane.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 150, 50));
 
-        jLayeredPane2.setBackground(new java.awt.Color(0, 204, 204));
+        jLayeredPane2.setBackground(new java.awt.Color(155, 110, 163));
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLayeredPane2.setToolTipText("");
         jLayeredPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -330,14 +337,24 @@ public class SignUp extends javax.swing.JFrame {
 
         lPane.add(jLayeredPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 50));
 
-        rPane.add(lPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 780));
+        licenseButton.setToolTipText("");
+        licenseButton.setBorderPainted(false);
+        licenseButton.setContentAreaFilled(false);
+        licenseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                licenseButtonActionPerformed(evt);
+            }
+        });
+        lPane.add(licenseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 280, 100));
+
+        rPane.add(lPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 730));
 
         seePassword.setBorder(null);
         seePassword.setContentAreaFilled(false);
         seePassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         seePassword.setFocusable(false);
-        seePassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/antieye.png"))); // NOI18N
-        seePassword.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/eye.png"))); // NOI18N
+        seePassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/antieye2.png"))); // NOI18N
+        seePassword.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/eye2.png"))); // NOI18N
         seePassword.setVerifyInputWhenFocusTarget(false);
         seePassword.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -352,11 +369,10 @@ public class SignUp extends javax.swing.JFrame {
         rPane.add(seePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 380, 40, -1));
 
         signIn.setBackground(new java.awt.Color(204, 204, 204));
-        signIn.setFont(new java.awt.Font("Constantia", 2, 24)); // NOI18N
-        signIn.setForeground(new java.awt.Color(51, 51, 51));
+        signIn.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         signIn.setText("Sign in");
         signIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        rPane.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 50, 80, 70));
+        rPane.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 50, 80, 60));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
@@ -367,27 +383,27 @@ public class SignUp extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("PASSWORD");
         rPane.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, 80, 40));
-        rPane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 570, 140, 10));
+        rPane.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 590, 140, 10));
         rPane.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 470, 10));
         rPane.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 320, 470, 10));
         rPane.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 410, 470, 10));
 
-        txt_email.setBackground(new java.awt.Color(0, 204, 255));
+        txt_email.setBackground(new java.awt.Color(74, 67, 102));
         txt_email.setFont(new java.awt.Font("Century", 0, 18)); // NOI18N
         txt_email.setForeground(new java.awt.Color(255, 255, 255));
         txt_email.setText("Your email here");
         txt_email.setBorder(null);
-        txt_email.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_emailMouseClicked(evt);
-            }
-        });
         txt_email.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_emailFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_emailFocusLost(evt);
+            }
+        });
+        txt_email.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_emailMouseClicked(evt);
             }
         });
         txt_email.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -397,11 +413,20 @@ public class SignUp extends javax.swing.JFrame {
         });
         rPane.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 470, 470, 30));
 
-        txt_name.setBackground(new java.awt.Color(0, 204, 255));
+        txt_name.setBackground(new java.awt.Color(74, 67, 102));
         txt_name.setFont(new java.awt.Font("Century", 0, 18)); // NOI18N
         txt_name.setForeground(new java.awt.Color(255, 255, 255));
         txt_name.setText("Enter your full name");
         txt_name.setBorder(null);
+        txt_name.setCaretColor(new java.awt.Color(74, 67, 102));
+        txt_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txt_nameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_nameFocusLost(evt);
+            }
+        });
         txt_name.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txt_nameMouseClicked(evt);
@@ -415,44 +440,36 @@ public class SignUp extends javax.swing.JFrame {
                 txt_nameActionPerformed(evt);
             }
         });
-        txt_name.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txt_nameFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_nameFocusLost(evt);
-            }
-        });
         txt_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nameKeyTyped(evt);
+            }
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_nameKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_nameKeyReleased(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_nameKeyTyped(evt);
-            }
         });
         rPane.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, 470, 30));
 
-        txt_username.setBackground(new java.awt.Color(0, 204, 255));
+        txt_username.setBackground(new java.awt.Color(74, 67, 102));
         txt_username.setFont(new java.awt.Font("Century", 0, 18)); // NOI18N
         txt_username.setForeground(new java.awt.Color(255, 255, 255));
         txt_username.setText("Enter your username ");
-        txt_username.setToolTipText("a valid username should only contain small characters");
+        txt_username.setToolTipText("Enter a non-uppercase username between 3 to 20 characters");
         txt_username.setBorder(null);
-        txt_username.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_usernameMouseClicked(evt);
-            }
-        });
         txt_username.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_usernameFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_usernameFocusLost(evt);
+            }
+        });
+        txt_username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_usernameMouseClicked(evt);
             }
         });
         txt_username.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -462,33 +479,33 @@ public class SignUp extends javax.swing.JFrame {
         });
         rPane.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, 470, 30));
 
-        txt_password.setBackground(new java.awt.Color(0, 204, 255));
+        txt_password.setBackground(new java.awt.Color(74, 67, 102));
         txt_password.setFont(new java.awt.Font("Century", 0, 18)); // NOI18N
         txt_password.setForeground(new java.awt.Color(255, 255, 255));
         txt_password.setText("Password here");
         txt_password.setBorder(null);
-        txt_password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_passwordMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                txt_passwordMouseEntered(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txt_passwordMousePressed(evt);
-            }
-        });
-        txt_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_passwordActionPerformed(evt);
-            }
-        });
         txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_passwordFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_passwordFocusLost(evt);
+            }
+        });
+        txt_password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txt_passwordMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_passwordMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txt_passwordMouseEntered(evt);
+            }
+        });
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordActionPerformed(evt);
             }
         });
         txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -498,41 +515,30 @@ public class SignUp extends javax.swing.JFrame {
         });
         rPane.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, 430, 30));
 
-        chkbox_agree.setBackground(new java.awt.Color(0, 204, 255));
-        chkbox_agree.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        chkbox_agree.setForeground(new java.awt.Color(255, 255, 255));
-        chkbox_agree.setText("I agree to the terms and conditions");
-        chkbox_agree.setBorder(null);
-        chkbox_agree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkbox_agreeActionPerformed(evt);
-            }
-        });
-        rPane.add(chkbox_agree, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 540, -1, -1));
+        jPanel3.setBackground(new java.awt.Color(155, 110, 163));
+        jPanel3.setLayout(null);
 
-        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        signup_button.setBackground(new java.awt.Color(255, 255, 255));
+        signup_button.setBackground(new java.awt.Color(155, 110, 163));
         signup_button.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        signup_button.setForeground(new java.awt.Color(255, 255, 255));
+        signup_button.setForeground(java.awt.Color.white);
         signup_button.setText("Sign Up");
         signup_button.setToolTipText("");
         signup_button.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
         signup_button.setBorderPainted(false);
         signup_button.setContentAreaFilled(false);
         signup_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        signup_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signup_buttonActionPerformed(evt);
-            }
-        });
         signup_button.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 signup_buttonFocusLost(evt);
             }
         });
-        jPanel3.add(signup_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 50));
+        signup_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signup_buttonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(signup_button);
+        signup_button.setBounds(0, 0, 210, 50);
 
         rPane.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 590, 210, 50));
 
@@ -542,7 +548,7 @@ public class SignUp extends javax.swing.JFrame {
         rPane.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 620, 80, 30));
         rPane.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 500, 470, 10));
 
-        jButton3.setBackground(new java.awt.Color(36, 47, 65));
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
         jButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton3.setToolTipText("Sign-in here");
         jButton3.setBorder(null);
@@ -553,12 +559,12 @@ public class SignUp extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        rPane.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 550, 140, 20));
+        rPane.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 570, 140, 20));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
         jLabel10.setText("Already a member?");
-        rPane.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 550, 140, 20));
+        rPane.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 570, 140, 20));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(102, 102, 102));
@@ -574,34 +580,34 @@ public class SignUp extends javax.swing.JFrame {
         lbl_null_name.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_null_name.setForeground(new java.awt.Color(255, 255, 255));
         lbl_null_name.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nullfield.png"))); // NOI18N
-        lbl_null_name.setToolTipText("Cannot be blank");
+        lbl_null_name.setToolTipText("Full name cannot be empty");
         rPane.add(lbl_null_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 20, 20));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/security checked.png"))); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/shield.png"))); // NOI18N
         jLabel15.setToolTipText("This software is highly optimized to prevent any unathorized access (eg., hackers)");
-        rPane.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 340, 20, 20));
+        rPane.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 330, 30, 40));
 
         lbl_null_username.setBackground(new java.awt.Color(36, 47, 65));
         lbl_null_username.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_null_username.setForeground(new java.awt.Color(255, 255, 255));
         lbl_null_username.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nullfield.png"))); // NOI18N
-        lbl_null_username.setToolTipText("Cannot be blank");
+        lbl_null_username.setToolTipText("Username cannot be empty");
         rPane.add(lbl_null_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 300, 20, 20));
 
         lbl_null_password.setBackground(new java.awt.Color(36, 47, 65));
         lbl_null_password.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_null_password.setForeground(new java.awt.Color(255, 255, 255));
         lbl_null_password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nullfield.png"))); // NOI18N
-        lbl_null_password.setToolTipText("Cannot be blank");
+        lbl_null_password.setToolTipText("Password cannot be empty");
         rPane.add(lbl_null_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 20, 20));
 
         lbl_null_email.setBackground(new java.awt.Color(36, 47, 65));
         lbl_null_email.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_null_email.setForeground(new java.awt.Color(255, 255, 255));
         lbl_null_email.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/nullfield.png"))); // NOI18N
-        lbl_null_email.setToolTipText("Cannot be blank");
+        lbl_null_email.setToolTipText("Email cannot be empty");
         rPane.add(lbl_null_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 20, 20));
 
         lbl_capslock.setBackground(new java.awt.Color(36, 47, 65));
@@ -635,10 +641,10 @@ public class SignUp extends javax.swing.JFrame {
         lbl_unaccepted_password.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         lbl_unaccepted_password.setForeground(new java.awt.Color(255, 255, 255));
         lbl_unaccepted_password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/invalid.png"))); // NOI18N
-        lbl_unaccepted_password.setToolTipText("Your password is unacceptable");
+        lbl_unaccepted_password.setToolTipText("Your password is too weak");
         rPane.add(lbl_unaccepted_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 390, 20, 20));
 
-        contactPanel.setBackground(new java.awt.Color(0, 204, 255));
+        contactPanel.setBackground(new java.awt.Color(74, 67, 102));
 
         contact_fb.setBackground(new java.awt.Color(36, 47, 65));
         contact_fb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/fbIcon.png"))); // NOI18N
@@ -721,7 +727,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Sign Up or ");
-        rPane.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 130, 40));
+        rPane.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 130, 40));
 
         sign_in_button.setBackground(new java.awt.Color(0, 204, 255));
         sign_in_button.setBorder(null);
@@ -732,7 +738,7 @@ public class SignUp extends javax.swing.JFrame {
                 sign_in_buttonActionPerformed(evt);
             }
         });
-        rPane.add(sign_in_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 70, 70, 30));
+        rPane.add(sign_in_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 70, 70, 30));
 
         lbl_accepted_email.setBackground(new java.awt.Color(36, 47, 65));
         lbl_accepted_email.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -749,6 +755,7 @@ public class SignUp extends javax.swing.JFrame {
         rPane.add(lbl_unaccepted_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 20, 20));
 
         settingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/support.png"))); // NOI18N
+        settingButton.setBorderPainted(false);
         settingButton.setContentAreaFilled(false);
         settingButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         settingButton.setFocusable(false);
@@ -759,7 +766,35 @@ public class SignUp extends javax.swing.JFrame {
                 settingButtonActionPerformed(evt);
             }
         });
-        rPane.add(settingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 0, 40, 40));
+        rPane.add(settingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 0, 50, 40));
+
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+
+        chkbox_agree.setBackground(new java.awt.Color(74, 67, 102));
+        chkbox_agree.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        chkbox_agree.setText("I agree to ");
+        chkbox_agree.setContentAreaFilled(false);
+        chkbox_agree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                chkbox_agreeMouseEntered(evt);
+            }
+        });
+        jPanel1.add(chkbox_agree);
+
+        jButton1.setFont(new java.awt.Font("Open Sans", 3, 18)); // NOI18N
+        jButton1.setText("the terms and conditions");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+
+        rPane.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, 340, 50));
 
         getContentPane().add(rPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 720));
 
@@ -793,10 +828,46 @@ public class SignUp extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/teethManager.png")));
         setResizable(false);
         setLocationRelativeTo(null);
+        chkbox_agree.setEnabled(false);
         pack();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
     }
-
-
+    
+    final void checkNotNullToShowTerms() {
+        if (txt_name != null && txt_username != null && txt_password != null && txt_email != null) {
+            if (!txt_name.getText().equalsIgnoreCase("Enter your full name") && !txt_username.getText().equalsIgnoreCase("Enter your username")
+                    && !txt_email.getText().equalsIgnoreCase("Your email here") && !Arrays.toString(txt_password.getPassword()).equalsIgnoreCase("Your password here")) {
+                
+            }
+        }
+        
+    }
+    
+    final void enableChkBox() {
+        
+        checkNotNullToShowTerms();
+        
+        String pass = String.valueOf(txt_password.getPassword()).trim();
+        int pass_length = pass.length();
+        String email_valid = txt_email.getText().trim();
+        
+        String emailtoLowerCase = email_valid.toLowerCase();
+        if (!txt_name.getText().equals(empty) && !txt_username.getText().equals(empty) && !txt_email.getText().equals(empty) && txt_password.getPassword().length != 0
+                && !txt_name.getText().equalsIgnoreCase("Enter your name here") || !txt_name.getText().equalsIgnoreCase("Please re-enter your full name") && !txt_username.getText().equalsIgnoreCase("Enter your username") && !String.valueOf(txt_password.getPassword()).equalsIgnoreCase("Password here")
+                && !txt_email.getText().equalsIgnoreCase("Your email here")) {
+            if (pass_length > 7 && pass_length < 21) {
+                
+                if (email_valid.contains("@") && emailtoLowerCase.contains(".com") && emailtoLowerCase.contains("gmail") || emailtoLowerCase.contains("yahoo")) {
+                    chkbox_agree.setEnabled(true);
+                    chkbox_agree.setForeground(Color.WHITE);
+                } else {
+                    chkbox_agree.setEnabled(false);
+                }
+            }
+        }
+        
+    }
     private void txt_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusGained
         // TODO add your handling code here:
         if (txt_email.getText().trim().equalsIgnoreCase("Your email here")) {
@@ -816,7 +887,7 @@ public class SignUp extends javax.swing.JFrame {
         if (txt_name.getText().trim().equalsIgnoreCase("Please re-enter your full name")) {
             txt_name.setText("");
         }
-
+        
 
     }//GEN-LAST:event_txt_nameMouseClicked
 
@@ -855,7 +926,7 @@ public class SignUp extends javax.swing.JFrame {
         } else {
             txt_username.setText("");
         }
-
+        
 
     }//GEN-LAST:event_txt_usernameFocusGained
 
@@ -881,31 +952,33 @@ public class SignUp extends javax.swing.JFrame {
     private void signup_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signup_buttonActionPerformed
         // TODO add your handling code here:
 
-        //FELLOW DEVS, 
-        // THIS NEEDS A LOT OF REVISE AND OPTIMISATION!! -ROY
+        //FELLOW DEVS, F
         String pass = String.valueOf(txt_password.getPassword()).trim();
         int pass_length = pass.length();
         String email_valid = txt_email.getText().trim();
+        String emailtoLowerCase = email_valid.toLowerCase();
         String sql = "INSERT INTO `registertbl`(`Full Name`, `Username`, `Password`, `Email`) VALUES (?,?,?,?)";
         //String check = "SELECT `Username`, `Email` FROM `registertbl` WHERE `Username` = '" + txt_username.getText() + "'";
         /*String check = "SELECT `Username`, `Email` FROM `registertbl` WHERE `Username`= ? and `Email` = ?"; */
-
+        
         int counter = 1;
+        
         try {
-
+            
             for (int c = 0; c < counter; c++) {
-
+                
                 if (chkbox_agree.isSelected() && !txt_name.getText().equals(empty) && !txt_username.getText().equals(empty) && !txt_email.getText().equals(empty) && txt_password.getPassword().length != 0
                         && !txt_name.getText().equalsIgnoreCase("Enter your name here") && !txt_username.getText().equalsIgnoreCase("Enter your username") && !String.valueOf(txt_password.getPassword()).equalsIgnoreCase("Password here")
                         && !txt_email.getText().equalsIgnoreCase("Your email here")) {
 
                     //check for password validity
                     if (pass_length > 7 && pass_length < 21) {
-                        if (email_valid.contains("@") && email_valid.contains(".com") && email_valid.contains("gmail") || email_valid.contains("yahoo")) {
-
+                        boolean pass_legit = true;
+                        if (email_valid.contains("@") && emailtoLowerCase.contains(".com") && emailtoLowerCase.contains("gmail") || emailtoLowerCase.contains("yahoo")) {
+                            boolean email_legit = true;
                             String user = txt_username.getText().trim();
                             String email = txt_email.getText().trim();
-
+                            
                             String verify = "SELECT `Username`, `Email` FROM `registertbl` WHERE `Username` = '" + user + "' or `Email` = '" + email + "' ";
                             rs = st.executeQuery(verify);
                             int count = 0;
@@ -927,11 +1000,11 @@ public class SignUp extends javax.swing.JFrame {
                                     login.setVisible(true);
                                     this.dispose();
                                 } else {
-
+                                    
                                 }
-
+                                
                             } else if (count > 1) {
-
+                                
                                 Object[] options = {"Take me to the Log-in Page",
                                     "Cancel"};
                                 int userOption = JOptionPane.showOptionDialog(null, "It appears that you are trying to sign-up with an existing account.",
@@ -946,31 +1019,31 @@ public class SignUp extends javax.swing.JFrame {
                                     login.setVisible(true);
                                     this.dispose();
                                 }
-
+                                
                             } else {
-
+                                
                                 try {
                                     Thread.sleep(500);
                                     SignUp2 signUp2 = new SignUp2();
                                     signUp2.setVisible(true);
                                     this.dispose();
-
+                                    
                                     System.out.println("Success verification 1");
                                     txtName = txt_name.getText().trim().toUpperCase().concat(",");
                                     txtUsername = txt_username.getText().trim().toLowerCase();
                                     chrPassword = txt_password.getPassword();
-                                    txtPassword = String.valueOf(chrPassword).trim();
-                                    txtEmail = txt_email.getText().trim();
-
+                                    txtPassword = String.valueOf(chrPassword);
+                                    txtEmail = txt_email.getText().toLowerCase().trim();
+                                    
                                     signUp2.txt_name2.setText(txtName);
                                     signUp2.txt_username2.setText(txtUsername);
                                     signUp2.txt_password2.setText(txtPassword);
                                     signUp2.txt_email2.setText(txtEmail);
-
+                                    
                                 } catch (Exception ex) {
-
+                                    
                                 }
-
+                                
                             }
                         } else {
                             JOptionPane.showMessageDialog(null, "That is not a valid email. Please enter a valid email", "Sign Up Failed!", JOptionPane.ERROR_MESSAGE);
@@ -980,33 +1053,33 @@ public class SignUp extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Your password is not acceptable. Please try a different password", "Sign Up Failed!", JOptionPane.ERROR_MESSAGE);
                         System.out.println("checking password validity...");
                     }
-
+                    
                     {
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Make sure you fill-up all fields completely and agree to the terms and conditions of using this software before we process your registration", "Sign Up Failed. Please Try Again!", JOptionPane.ERROR_MESSAGE);
-
+                    
                 }
             }
-
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-
+            
         } finally {
-
+            
             if (counter > 0) {
                 try {
-
+                    
                     rs.close();
                     pst.close();
-
+                    
                 } catch (Exception e) {
-
+                    
                 }
-
+                
             }
         }
-                    //pst = con.prepareStatement(check);
+        //pst = con.prepareStatement(check);
         // pst = con.prepareStatement(sql);
         // pst.setString(1, txt_name.getText());
         //pst.setString(2, txt_username.getText());
@@ -1015,7 +1088,7 @@ public class SignUp extends javax.swing.JFrame {
          String tempPass = String.valueOf(chrtempPass).trim();
          txt_password.setText(tempPass);
          */
-                    //for pw
+        //for pw
         // pst.setString(3, Arrays.toString(txt_password.getPassword()));
         // pst.setString(4, txt_email.getText());
         //revise for first name needed -ROY
@@ -1030,7 +1103,7 @@ public class SignUp extends javax.swing.JFrame {
         //    rs.close();
         //     pst.close();
         ////                        }
-                    /* if (checkEmail.equalsIgnoreCase("txtEmail")) {
+        /* if (checkEmail.equalsIgnoreCase("txtEmail")) {
          JOptionPane.showMessageDialog(this, "Error", "The same email has already been used. Please try again with a different email.", JFrame.ERROR);
          rs.close();
          pst.close();
@@ -1051,9 +1124,9 @@ public class SignUp extends javax.swing.JFrame {
          }
          }
          */
-                    // pst.execute();\
+        // pst.execute();\
         //v
-                    /*                  SignUp2 signUp2 = new SignUp2();
+        /*                  SignUp2 signUp2 = new SignUp2();
          signUp2.setVisible(true);
          signUp2.pack();
          this.hide();
@@ -1118,10 +1191,6 @@ public class SignUp extends javax.swing.JFrame {
 
     }//GEN-LAST:event_contact_twitterActionPerformed
 
-    private void chkbox_agreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkbox_agreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkbox_agreeActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Login login = new Login();
@@ -1144,13 +1213,13 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         boolean checkCapsState = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
-
+        
         if (checkCapsState == true) {
             lbl_capslock.setText("CAPS LOCK is on");
         } else {
             lbl_capslock.setText("CAPS LOCK is off");
         }
-
+        
 
     }//GEN-LAST:event_txt_nameKeyPressed
 
@@ -1162,11 +1231,20 @@ public class SignUp extends javax.swing.JFrame {
 
     private void txt_usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_usernameFocusLost
         // TODO add your handling code here:
+        String username = txt_username.getText().trim();
+        int username_length = username.length();
+        System.out.print(username_length);
+        
         if (txt_username.getText().equals(empty)) {
             lbl_null_username.setVisible(true);
-        } else {
-            String txt_username_lower = txt_username.getText().trim().toLowerCase();
-            txt_username.setText(txt_username_lower);
+        } else if (!txt_username.getText().equals(empty)) {
+            if (username_length >= 3) {
+                
+                String txt_username_lower = txt_username.getText().trim().toLowerCase();
+                txt_username.setText(txt_username_lower);
+            } else if (username_length < 3) {
+                
+            }
         }
     }//GEN-LAST:event_txt_usernameFocusLost
 
@@ -1175,44 +1253,47 @@ public class SignUp extends javax.swing.JFrame {
 
         String pass = String.valueOf(txt_password.getPassword()).trim();
         int pass_length = pass.length();
-
+        
         if (pass_length == 0) {
-
+            
             lbl_null_password.setVisible(true);
             lbl_accepted_password.setVisible(false);
             lbl_unaccepted_password.setVisible(false);
-
+            
         }
         if (pass_length > 7 && pass_length < 21) {
-
+            
             lbl_accepted_password.setVisible(true);
             lbl_null_password.setVisible(false);
             lbl_unaccepted_password.setVisible(false);
-
+            
         } else if (pass_length >= 21 || pass_length < 8 && pass_length > 0) {
             lbl_accepted_password.setVisible(false);
             lbl_unaccepted_password.setVisible(true);
             lbl_null_password.setVisible(false);
-
+            
         }
     }//GEN-LAST:event_txt_passwordFocusLost
 
     private void txt_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_emailFocusLost
         // TODO add your handling code here:
+
         String email_valid = txt_email.getText().trim();
+        String emailtoLowerCase = email_valid.toLowerCase();
+        email_valid = emailtoLowerCase;
         if (txt_email.getText().equals(empty)) {
             lbl_null_email.setVisible(true);
             lbl_accepted_email.setVisible(false);
             lbl_unaccepted_email.setVisible(false);
         } else if (!txt_email.getText().equals(empty) && !txt_email.getText().equalsIgnoreCase("Your email here") && (email_valid.contains("@") && email_valid.contains(".com")
                 && email_valid.contains("gmail") || email_valid.contains("yahoo"))) {
-
+            
             lbl_accepted_email.setVisible(true);
             lbl_null_email.setVisible(false);
             lbl_unaccepted_email.setVisible(false);
-
+            
         } else if (!email_valid.contains("@") && !email_valid.contains(".com") && !email_valid.contains("gmail") || !email_valid.contains("yahoo")) {
-
+            
             lbl_accepted_email.setVisible(false);
             lbl_unaccepted_email.setVisible(true);
             lbl_null_email.setVisible(false);
@@ -1247,7 +1328,7 @@ public class SignUp extends javax.swing.JFrame {
         if (mouseClick == 1 && !txt_name.getText().trim().equalsIgnoreCase("Enter your full name")) {
             String perm = txt_name.getText();
             txt_name.setText(perm);
-
+            
         }
 
     }//GEN-LAST:event_lPaneMouseClicked
@@ -1256,7 +1337,7 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         boolean checkCapsState = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
-
+        
         if (checkCapsState == true) {
             lbl_capslock.setText("CAPS LOCK is on");
         } else {
@@ -1268,7 +1349,7 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         boolean checkCapsState = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
-
+        
         if (checkCapsState == true) {
             lbl_capslock.setText("CAPS LOCK is on");
         } else {
@@ -1280,7 +1361,7 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         boolean checkCapsState = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
-
+        
         if (checkCapsState == true) {
             lbl_capslock.setText("CAPS LOCK is on");
         } else {
@@ -1354,7 +1435,7 @@ public class SignUp extends javax.swing.JFrame {
             toggleColor.setForeground(Color.WHITE);
             lbl_date.setForeground(Color.WHITE);
             lbl_time.setForeground(Color.WHITE);
-
+            
             setToggleColorIcon("/resources/default tooth.png");
             // toggleColor.setText("Default Theme");
 
@@ -1364,7 +1445,7 @@ public class SignUp extends javax.swing.JFrame {
             // toggleColor.setText("Dark Theme");
             toggleColor.setForeground(Color.BLACK);
             setToggleColorIcon("/resources/dark tooth.png");
-
+            
         }
     }//GEN-LAST:event_toggleColorActionPerformed
 
@@ -1403,7 +1484,41 @@ public class SignUp extends javax.swing.JFrame {
 
     private void settingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingButtonActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_settingButtonActionPerformed
+
+    private void licenseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licenseButtonActionPerformed
+        // TODO add your handling code here:
+        TermsAndConditions termsandconditions = new TermsAndConditions();
+        termsandconditions.setVisible(true);
+        SignUp signup = new SignUp();
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    }//GEN-LAST:event_licenseButtonActionPerformed
+
+    private void rPaneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rPaneMouseEntered
+        // TODO add your handling code here:
+        enableChkBox();
+    }//GEN-LAST:event_rPaneMouseEntered
+
+    private void chkbox_agreeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chkbox_agreeMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkbox_agreeMouseEntered
+    
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        SignUp signup = new SignUp();
+        TermsAndConditions tac = new TermsAndConditions();
+        tac.setVisible(true);
+        tac.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        /*  if (!tac.isVisible()) {
+            tac.setVisible(true);
+        } else {
+            tac.dispose();
+        }
+         */
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1416,14 +1531,19 @@ public class SignUp extends javax.swing.JFrame {
          */
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SignUp.class
+                    .getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SignUp.class
+                    .getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SignUp.class
+                    .getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SignUp.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -1434,17 +1554,18 @@ public class SignUp extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SignUp().setVisible(true);
-
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox chkbox_agree;
+    public javax.swing.JCheckBox chkbox_agree;
     private javax.swing.JPanel contactPanel;
     private javax.swing.JButton contact_fb;
     private javax.swing.JButton contact_google;
     private javax.swing.JButton contact_twitter;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1460,6 +1581,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JSeparator jSeparator1;
@@ -1481,6 +1603,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_time;
     private javax.swing.JLabel lbl_unaccepted_email;
     private javax.swing.JLabel lbl_unaccepted_password;
+    private javax.swing.JButton licenseButton;
     private javax.swing.JMenuItem menu_clear;
     private javax.swing.JMenuItem menu_exit;
     private javax.swing.JMenuItem menu_refresh;

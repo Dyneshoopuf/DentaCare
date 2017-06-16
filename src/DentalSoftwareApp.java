@@ -51,14 +51,14 @@ public class DentalSoftwareApp {
                     System.out.println("No existing files found yet");
                 }
                 if (i == 47) {
-                    Thread.sleep(1000);
-                    screenPop.loadingDescription.setText("Fetching data...");
+                    Thread.sleep(500);
+//                    screenPop.loadingDescription.setText("Fetching data...");
                     multiplier -= 1;
                     Data data = new Data();
                     data.getData();
                 }
                 if (i == 79) {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                     screenPop.loadingDescription.setText("Warming up...");
                     multiplier += 110;
                     signUp.revalidate();
@@ -67,9 +67,9 @@ public class DentalSoftwareApp {
                     Thread.sleep(500);
                 }
                 if (i == 99) {
-                    Thread.sleep(400);
+                    Thread.sleep(300);
                     screenPop.loadingDescription.setText("Done..!");
-                    Thread.sleep(500);
+                    Thread.sleep(300);
                     signUp.repaint();
                 }
 

@@ -37,7 +37,7 @@ public class SignUp2 extends javax.swing.JFrame {
     public SignUp2() {
 
         initComponents();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(rootPane);
         modifyThis();
         pack();
         try {
@@ -57,7 +57,7 @@ public class SignUp2 extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/teethManager.png")));
         setResizable(false);
         pack();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(rootPane);
     }
 
     /**
@@ -220,6 +220,8 @@ public class SignUp2 extends javax.swing.JFrame {
         signUp.txt_username.setText(username);
         signUp.txt_password.setText(password);
         signUp.txt_email.setText(email);
+        signUp.chkbox_agree.setEnabled(false);  
+        
 
 
     }//GEN-LAST:event_jButton2ActionPerformed

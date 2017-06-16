@@ -68,13 +68,14 @@
     <Container class="javax.swing.JPanel" name="rPane">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="cc" red="0" type="rgb"/>
+          <Color blue="66" green="43" red="4a" type="rgb"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rPaneMouseClicked"/>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rPaneMouseReleased"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="rPaneFocusGained"/>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rPaneMouseReleased"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rPaneMouseClicked"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rPaneMouseEntered"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rPaneKeyPressed"/>
       </Events>
       <AuxValues>
@@ -93,7 +94,7 @@
         <Container class="javax.swing.JPanel" name="lPane">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="0" type="rgb"/>
+              <Color blue="a3" green="6e" red="9b" type="rgb"/>
             </Property>
           </Properties>
           <Events>
@@ -102,7 +103,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="660" height="780"/>
+              <AbsoluteConstraints x="0" y="0" width="660" height="730"/>
             </Constraint>
           </Constraints>
 
@@ -122,7 +123,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="580" y="200" width="50" height="30"/>
+                  <AbsoluteConstraints x="560" y="210" width="50" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -152,7 +153,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="260" width="570" height="20"/>
+                  <AbsoluteConstraints x="40" y="260" width="570" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -168,7 +169,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="210" y="420" width="-1" height="120"/>
+                  <AbsoluteConstraints x="240" y="430" width="-1" height="120"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -184,7 +185,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="120" width="-1" height="50"/>
+                  <AbsoluteConstraints x="50" y="130" width="-1" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -200,7 +201,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="200" width="420" height="50"/>
+                  <AbsoluteConstraints x="70" y="210" width="420" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -216,14 +217,14 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="440" y="200" width="150" height="50"/>
+                  <AbsoluteConstraints x="440" y="210" width="150" height="50"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Container class="javax.swing.JLayeredPane" name="jLayeredPane2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="0" type="rgb"/>
+                  <Color blue="a3" green="6e" red="9b" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
@@ -271,6 +272,21 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="licenseButton">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="borderPainted" type="boolean" value="false"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="licenseButtonActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="190" y="440" width="280" height="100"/>
+                </Constraint>
+              </Constraints>
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JCheckBox" name="seePassword">
@@ -284,10 +300,10 @@
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/resources/antieye.png"/>
+              <Image iconType="3" name="/resources/antieye2.png"/>
             </Property>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/resources/eye.png"/>
+              <Image iconType="3" name="/resources/eye2.png"/>
             </Property>
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
@@ -307,10 +323,7 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Constantia" size="24" style="2"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Font name="Century Gothic" size="24" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sign in"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -319,7 +332,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="830" y="50" width="80" height="70"/>
+              <AbsoluteConstraints x="850" y="50" width="80" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -358,7 +371,7 @@
         <Component class="javax.swing.JSeparator" name="jSeparator1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1020" y="570" width="140" height="10"/>
+              <AbsoluteConstraints x="1060" y="590" width="140" height="10"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -386,7 +399,7 @@
         <Component class="javax.swing.JTextField" name="txt_email">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="0" type="rgb"/>
+              <Color blue="66" green="43" red="4a" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century" size="18" style="0"/>
@@ -400,9 +413,9 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_emailMouseClicked"/>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_emailFocusGained"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_emailFocusLost"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_emailMouseClicked"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_emailKeyPressed"/>
           </Events>
           <AuxValues>
@@ -417,7 +430,7 @@
         <Component class="javax.swing.JTextField" name="txt_name">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="0" type="rgb"/>
+              <Color blue="66" green="43" red="4a" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century" size="18" style="0"/>
@@ -429,16 +442,19 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
+            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="43" red="4a" type="rgb"/>
+            </Property>
           </Properties>
           <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_nameFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_nameFocusLost"/>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_nameMouseClicked"/>
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_nameMouseExited"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nameActionPerformed"/>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_nameFocusGained"/>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_nameFocusLost"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_nameKeyTyped"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_nameKeyPressed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_nameKeyReleased"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_nameKeyTyped"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -452,7 +468,7 @@
         <Component class="javax.swing.JTextField" name="txt_username">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="0" type="rgb"/>
+              <Color blue="66" green="43" red="4a" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century" size="18" style="0"/>
@@ -461,15 +477,15 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Enter your username "/>
-            <Property name="toolTipText" type="java.lang.String" value="a valid username should only contain small characters"/>
+            <Property name="toolTipText" type="java.lang.String" value="Enter a non-uppercase username between 3 to 20 characters"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_usernameMouseClicked"/>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_usernameFocusGained"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_usernameFocusLost"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_usernameMouseClicked"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_usernameKeyPressed"/>
           </Events>
           <AuxValues>
@@ -484,7 +500,7 @@
         <Component class="javax.swing.JPasswordField" name="txt_password">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="0" type="rgb"/>
+              <Color blue="66" green="43" red="4a" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century" size="18" style="0"/>
@@ -498,12 +514,12 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_passwordMouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_passwordMouseEntered"/>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_passwordMousePressed"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_passwordActionPerformed"/>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_passwordFocusGained"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txt_passwordFocusLost"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_passwordMousePressed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_passwordMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txt_passwordMouseEntered"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_passwordActionPerformed"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_passwordKeyPressed"/>
           </Events>
           <AuxValues>
@@ -515,35 +531,10 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chkbox_agree">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="0" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="12" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="I agree to the terms and conditions"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkbox_agreeActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="720" y="540" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="0" type="rgb"/>
+              <Color blue="a3" green="6e" red="9b" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -553,19 +544,19 @@
           </Constraints>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-            <Property name="useNullLayout" type="boolean" value="false"/>
+            <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JButton" name="signup_button">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="a3" green="6e" red="9b" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Century Gothic" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sign Up"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -588,8 +579,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signup_buttonActionPerformed"/>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="signup_buttonFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signup_buttonActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -625,7 +616,7 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="41" green="2f" red="24" type="rgb"/>
+              <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="0"/>
@@ -644,7 +635,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1020" y="550" width="140" height="20"/>
+              <AbsoluteConstraints x="1060" y="570" width="140" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -660,7 +651,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1020" y="550" width="140" height="20"/>
+              <AbsoluteConstraints x="1060" y="570" width="140" height="20"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -710,7 +701,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/nullfield.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Cannot be blank"/>
+            <Property name="toolTipText" type="java.lang.String" value="Full name cannot be empty"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -727,13 +718,13 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/resources/security checked.png"/>
+              <Image iconType="3" name="/resources/shield.png"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="This software is highly optimized to prevent any unathorized access (eg., hackers)"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="800" y="340" width="20" height="20"/>
+              <AbsoluteConstraints x="800" y="330" width="30" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -751,7 +742,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/nullfield.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Cannot be blank"/>
+            <Property name="toolTipText" type="java.lang.String" value="Username cannot be empty"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -773,7 +764,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/nullfield.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Cannot be blank"/>
+            <Property name="toolTipText" type="java.lang.String" value="Password cannot be empty"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -795,7 +786,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/nullfield.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Cannot be blank"/>
+            <Property name="toolTipText" type="java.lang.String" value="Email cannot be empty"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -883,7 +874,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/invalid.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Your password is unacceptable"/>
+            <Property name="toolTipText" type="java.lang.String" value="Your password is too weak"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -894,7 +885,7 @@
         <Container class="javax.swing.JPanel" name="contactPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="0" type="rgb"/>
+              <Color blue="66" green="43" red="4a" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -1027,7 +1018,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="700" y="60" width="130" height="40"/>
+              <AbsoluteConstraints x="720" y="60" width="130" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1049,7 +1040,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="830" y="70" width="70" height="30"/>
+              <AbsoluteConstraints x="850" y="70" width="70" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1102,6 +1093,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/resources/support.png"/>
             </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
@@ -1117,10 +1109,58 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1180" y="0" width="40" height="40"/>
+              <AbsoluteConstraints x="1180" y="0" width="50" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="opaque" type="boolean" value="false"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="720" y="530" width="340" height="50"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JCheckBox" name="chkbox_agree">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="43" red="4a" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Open Sans" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="I agree to "/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chkbox_agreeMouseEntered"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Open Sans" size="18" style="3"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="the terms and conditions"/>
+                <Property name="borderPainted" type="boolean" value="false"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
