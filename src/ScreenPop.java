@@ -42,7 +42,7 @@ public class ScreenPop extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(144, 71, 193));
 
         loadingPercent.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         loadingPercent.setForeground(new java.awt.Color(255, 255, 255));
@@ -51,12 +51,12 @@ public class ScreenPop extends javax.swing.JFrame {
 
         loadingBar.setBackground(new java.awt.Color(255, 255, 255));
         loadingBar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        loadingBar.setForeground(new java.awt.Color(0, 204, 204));
+        loadingBar.setForeground(new java.awt.Color(93, 53, 119));
 
         loadingDescription.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         loadingDescription.setForeground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(144, 71, 193));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Century", 2, 35)); // NOI18N
