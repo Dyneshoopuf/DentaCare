@@ -2,8 +2,8 @@
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 07, 2017 at 05:45 AM
+-- Host: localhost
+-- Generation Time: Jun 18, 2017 at 05:56 AM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `keytbl` (
-  `License Key` varchar(500) NOT NULL
+  `License Key` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -46,29 +46,30 @@ INSERT INTO `keytbl` (`License Key`) VALUES
 --
 
 CREATE TABLE `registertbl` (
-  `ID` int(11) NOT NULL,
+  `ID` int(1) NOT NULL,
   `Full Name` varchar(120) NOT NULL,
-  `Username` varchar(64) NOT NULL,
-  `Password` varchar(64) NOT NULL,
-  `Email` varchar(120) NOT NULL
+  `Username` varchar(20) NOT NULL,
+  `Password` varchar(20) NOT NULL,
+  `Email` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `registertbl`
---
-
-INSERT INTO `registertbl` (`ID`, `Full Name`, `Username`, `Password`, `Email`) VALUES
-(1, 'JULLIAH ANNE REYES,', 'rj_anne', 'test123456', 'julliahannereyes@gmail.com');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `keytbl`
+--
+ALTER TABLE `keytbl`
+  ADD UNIQUE KEY `License Key` (`License Key`);
+
+--
 -- Indexes for table `registertbl`
 --
 ALTER TABLE `registertbl`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Username` (`Username`),
+  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -78,7 +79,7 @@ ALTER TABLE `registertbl`
 -- AUTO_INCREMENT for table `registertbl`
 --
 ALTER TABLE `registertbl`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+  MODIFY `ID` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
