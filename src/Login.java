@@ -5,6 +5,8 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -37,6 +39,17 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // handle closing the window
+                Login login = new Login();
+
+                login.setVisible(false);
+                login.dispose();
+            }
+        });
         loginTime.currentTimeLogin(date, time);
         setLocationRelativeTo(null);
         modifyCloseButton();
@@ -142,20 +155,20 @@ public class Login extends javax.swing.JFrame {
         login.setBackground(new java.awt.Color(255, 255, 255));
         login.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         login.setPreferredSize(new java.awt.Dimension(754, 487));
-        login.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                loginMouseEntered(evt);
+        login.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                loginMouseDragged(evt);
             }
+        });
+        login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 loginMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 loginMouseReleased(evt);
             }
-        });
-        login.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                loginMouseDragged(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginMouseEntered(evt);
             }
         });
 
@@ -163,14 +176,14 @@ public class Login extends javax.swing.JFrame {
         txt_username.setText("Username");
         txt_username.setToolTipText("");
         txt_username.setBorder(null);
-        txt_username.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txt_usernameMouseClicked(evt);
-            }
-        });
         txt_username.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_usernameFocusGained(evt);
+            }
+        });
+        txt_username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_usernameMouseClicked(evt);
             }
         });
         txt_username.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -236,17 +249,17 @@ public class Login extends javax.swing.JFrame {
         txt_password.setFont(new java.awt.Font("DialogInput", 0, 18)); // NOI18N
         txt_password.setText("Password");
         txt_password.setBorder(null);
-        txt_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_passwordActionPerformed(evt);
-            }
-        });
         txt_password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_passwordFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txt_passwordFocusLost(evt);
+            }
+        });
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordActionPerformed(evt);
             }
         });
         txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -523,11 +536,11 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+            .addComponent(pnl_bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 454, Short.MAX_VALUE)
+            .addComponent(pnl_bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
         );
 
         pack();
@@ -542,6 +555,7 @@ public class Login extends javax.swing.JFrame {
         int count = 0;
         int counterUsername = 1;
         int counterPassword = 1;
+        
 
         try {
             //  String sql = "SELECT `Username`, `Password` FROM `registertbl` WHERE `Username`= ? and `Password` = ?";
