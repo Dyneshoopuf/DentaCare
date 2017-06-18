@@ -98,14 +98,14 @@ public class SignUp2 extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(390, 460));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_name2.setFont(new java.awt.Font("Century Gothic", 3, 22)); // NOI18N
+        txt_name2.setFont(new java.awt.Font("Century Gothic", 3, 17)); // NOI18N
         txt_name2.setForeground(new java.awt.Color(0, 204, 255));
-        jPanel1.add(txt_name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 280, 30));
+        jPanel1.add(txt_name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 290, 30));
 
         lbl_greet2.setFont(new java.awt.Font("Century", 1, 18)); // NOI18N
         lbl_greet2.setForeground(new java.awt.Color(255, 255, 255));
         lbl_greet2.setText("Hello Dr.");
-        jPanel1.add(lbl_greet2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
+        jPanel1.add(lbl_greet2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 30));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setBorder(new javax.swing.border.MatteBorder(null));
@@ -126,15 +126,15 @@ public class SignUp2 extends javax.swing.JFrame {
         lbl_email2.setText("Email");
         jPanel2.add(lbl_email2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 30));
 
-        txt_password2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        txt_password2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         txt_password2.setForeground(new java.awt.Color(0, 204, 255));
         jPanel2.add(txt_password2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 240, 30));
 
-        txt_username2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        txt_username2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         txt_username2.setForeground(new java.awt.Color(0, 204, 255));
         jPanel2.add(txt_username2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 240, 30));
 
-        txt_email2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        txt_email2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         txt_email2.setForeground(new java.awt.Color(0, 204, 255));
         jPanel2.add(txt_email2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 240, 30));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 240, 10));
@@ -145,10 +145,11 @@ public class SignUp2 extends javax.swing.JFrame {
 
         lbl_confirm2nd.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         lbl_confirm2nd.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_confirm2nd.setText("provided to us are accurate");
+        lbl_confirm2nd.setText("provided to us are accurate.");
         jPanel1.add(lbl_confirm2nd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 30));
 
         jPanel3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.setLayout(null);
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
@@ -157,17 +158,20 @@ public class SignUp2 extends javax.swing.JFrame {
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setFocusPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         jPanel3.add(jButton2);
+        jButton2.setBounds(-4, -5, 190, 40);
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 180, 30));
 
         jPanel4.setBackground(new java.awt.Color(51, 153, 255));
         jPanel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel4.setLayout(null);
 
         signup_button.setBackground(new java.awt.Color(51, 153, 255));
         signup_button.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -177,12 +181,14 @@ public class SignUp2 extends javax.swing.JFrame {
         signup_button.setBorderPainted(false);
         signup_button.setContentAreaFilled(false);
         signup_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        signup_button.setFocusPainted(false);
         signup_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signup_buttonActionPerformed(evt);
             }
         });
         jPanel4.add(signup_button);
+        signup_button.setBounds(0, -5, 90, 40);
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 90, 30));
 
@@ -220,8 +226,7 @@ public class SignUp2 extends javax.swing.JFrame {
         signUp.txt_username.setText(username);
         signUp.txt_password.setText(password);
         signUp.txt_email.setText(email);
-        signUp.chkbox_agree.setEnabled(false);  
-        
+        signUp.chkbox_agree.setEnabled(false);
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
