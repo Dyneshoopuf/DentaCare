@@ -6,7 +6,7 @@ DentaCare is a simple and reliable Software Application built (and is still bein
 Key features of DentaCare: <br>
 <ul style="list-style-type:circle">
 <li> Keep track of patients' record </li>
-<ul> <li> No longer will dentists or dental secretaries have to deal with piles of papers of their patients' record just to keep track of their previous appointments, personal information and dental procedures. DentaCare is a twenty-first century-looking, user-friendly software that does the data storage and ensures a secured and easily accessible data.
+<ul> <li> No longer will dentists or dental secretaries have to deal with piles of papers of their patients' record just to keep track of their previous appointments, personal information and dental procedures. DentaCare is a twenty-first century-looking, user-friendly software that does the data storage and ensures an accessible data in a secured environment. 
 <li> DentaCare even goes as far as being able to store an image or video of the patients' mouth and illustrate a before-and-after comparison, if necessary. </li> </ul> </ul>
 <ul> <li> Set-up or View appointment with a real-time calendar and or Notify patients' appointment via email. </li> </ul>
 <ul> <li> Cross-platform: Compatible on almost all Operating Systems </li> 
